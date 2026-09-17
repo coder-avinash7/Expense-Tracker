@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
     LuUtensils,
     LuTrendingUp,
@@ -20,7 +19,6 @@ const TrasactionInfoCard = ({
     const isIncome = type === "income";
 
     return (
-
         <div
             className="
                 group
@@ -39,7 +37,6 @@ const TrasactionInfoCard = ({
         >
 
             {/* Icon */}
-
             <div
                 className="
                     w-11 h-11
@@ -54,26 +51,18 @@ const TrasactionInfoCard = ({
                     border border-white/10
                 "
             >
-
                 {icon ? (
-
                     <img
                         src={icon}
                         alt={title}
                         className="w-6 h-6 object-contain"
                     />
-
                 ) : (
-
                     <LuUtensils />
-
                 )}
-
             </div>
 
-
             {/* Information */}
-
             <div className="flex-1 min-w-0">
 
                 <p
@@ -99,13 +88,10 @@ const TrasactionInfoCard = ({
 
             </div>
 
-
             {/* Amount */}
-
             <div className="flex items-center gap-2">
 
                 {!hideDeleteBtn && (
-
                     <button
                         className="
                             text-gray-600
@@ -119,9 +105,7 @@ const TrasactionInfoCard = ({
                     >
                         <LuTrash2 size={17} />
                     </button>
-
                 )}
-
 
                 <div
                     className={`
@@ -133,7 +117,6 @@ const TrasactionInfoCard = ({
                         rounded-lg
                         text-xs
                         font-medium
-
                         ${
                             isIncome
                                 ? `
@@ -141,21 +124,24 @@ const TrasactionInfoCard = ({
                                     text-emerald-400
                                     border
                                     border-emerald-400/10
-                                  `
+                                `
                                 : `
                                     bg-red-400/10
                                     text-red-400
                                     border
                                     border-red-400/10
-                                  `
+                                `
                         }
                     `}
                 >
 
+                    {/* Amount */}
                     <span>
-                        {isIncome ? "+" : "-"} ${amount}
+                        {isIncome ? "+" : "-"} ₹
+                        {Number(amount).toLocaleString("en-IN")}
                     </span>
 
+                    {/* Trend Icon */}
                     {isIncome ? (
                         <LuTrendingUp />
                     ) : (
@@ -163,9 +149,7 @@ const TrasactionInfoCard = ({
                     )}
 
                 </div>
-
             </div>
-
         </div>
     );
 };
