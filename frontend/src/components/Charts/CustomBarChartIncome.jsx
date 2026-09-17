@@ -44,9 +44,9 @@ const CustomBarChart = ({ data = [] }) => {
                 <div className="min-w-[180px] rounded-xl px-4 py-3 bg-[#111936] border border-purple-400/20 shadow-2xl">
 
                     <p className="text-xs font-medium text-gray-400 mb-1">
-                        {item?.payload?.category ||
-                            item?.payload?.source ||
-                            "Expense"}
+                        {item?.payload?.source ||
+                            item?.payload?.month ||
+                            "Income"}
                     </p>
 
                     <p className="text-xl font-semibold text-white">
@@ -57,10 +57,10 @@ const CustomBarChart = ({ data = [] }) => {
 
                     <div className="flex items-center gap-2 mt-2">
 
-                        <span className="w-2 h-2 rounded-full bg-red-400" />
+                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
 
-                        <span className="text-[11px] text-red-400">
-                            Expense
+                        <span className="text-[11px] text-emerald-400">
+                            Income
                         </span>
 
                     </div>
@@ -82,20 +82,20 @@ const CustomBarChart = ({ data = [] }) => {
         return (
             <div className="w-full h-[300px] mt-6 flex flex-col items-center justify-center rounded-xl bg-white/[0.02] border border-white/[0.06]">
 
-                <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-red-500/10 border border-red-400/10">
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-emerald-500/10 border border-emerald-400/10">
 
-                    <span className="text-2xl text-red-400">
+                    <span className="text-2xl text-emerald-400">
                         ₹
                     </span>
 
                 </div>
 
                 <p className="mt-4 text-sm font-medium text-gray-400">
-                    No expense data available
+                    No income data available
                 </p>
 
                 <p className="mt-1 text-xs text-gray-600">
-                    Add expenses to see your spending trend
+                    Add income to see your income trend
                 </p>
 
             </div>
@@ -108,140 +108,120 @@ const CustomBarChart = ({ data = [] }) => {
     // -----------------------------------------
 
     return (
-        <>
-            {/* =====================================
-                3D BAR CSS
-            ====================================== */}
+        <div className="w-full h-[300px] mt-6 bg-transparent">
 
-            <style>
-                {`
-                    .expense-bar-3d {
-                        position: relative;
-                    }
+            <ResponsiveContainer
+                width="100%"
+                height="100%"
+            >
 
-                    .expense-bar-3d .recharts-bar-rectangle {
-                        transition: filter 0.25s ease;
-                    }
-
-                    .expense-bar-3d .recharts-bar-rectangle:hover {
-                        filter:
-                            drop-shadow(
-                                5px 7px 5px
-                                rgba(71, 85, 105, 0.28)
-                            )
-                            brightness(1.03);
-                    }
-                `}
-            </style>
-
-
-            <div className="w-full h-[300px] mt-6 bg-transparent expense-bar-3d">
-
-                <ResponsiveContainer
-                    width="100%"
-                    height="100%"
+                <BarChart
+                    data={data}
+                    margin={{
+                        top: 10,
+                        right: 10,
+                        left: 0,
+                        bottom: 5,
+                    }}
+                    barCategoryGap="20%"
                 >
 
-                    <BarChart
-                        data={data}
-                        margin={{
-                            top: 10,
-                            right: 10,
-                            left: 0,
-                            bottom: 5,
+                    {/* ---------------------------------
+                        GRID
+                    ---------------------------------- */}
+
+                    <CartesianGrid
+                        vertical={false}
+                        stroke="rgba(148,163,184,0.08)"
+                        strokeDasharray="4 4"
+                    />
+
+
+                    {/* ---------------------------------
+                        X AXIS
+                    ---------------------------------- */}
+
+                    <XAxis
+                        dataKey="month"
+                        axisLine={false}
+                        tickLine={false}
+                        tick={{
+                            fontSize: 11,
+                            fill: "#94A3B8",
                         }}
-                        barCategoryGap="20%"
+                        dy={8}
+                    />
+
+
+                    {/* ---------------------------------
+                        Y AXIS
+                    ---------------------------------- */}
+
+                    <YAxis
+                        axisLine={false}
+                        tickLine={false}
+                        width={50}
+                        tick={{
+                            fontSize: 11,
+                            fill: "#94A3B8",
+                        }}
+                        tickFormatter={(value) => {
+
+                            if (value >= 1000000) {
+                                return `${(
+                                    value / 1000000
+                                ).toFixed(1)}M`;
+                            }
+
+                            if (value >= 1000) {
+                                return `${(
+                                    value / 1000
+                                ).toFixed(0)}K`;
+                            }
+
+                            return value;
+                        }}
+                    />
+
+
+                    {/* ---------------------------------
+                        TOOLTIP
+                    ---------------------------------- */}
+
+                    <Tooltip
+                        content={<CustomTooltip />}
+                        cursor={{
+                            fill: "rgba(139,92,246,0.06)",
+                        }}
+                    />
+
+
+                    {/* ---------------------------------
+                        BAR
+                    ---------------------------------- */}
+
+                    <Bar
+                        dataKey="amount"
+                        radius={[8, 8, 3, 3]}
+                        maxBarSize={48}
+                        animationDuration={900}
+                        animationEasing="ease-out"
                     >
 
-                        {/* GRID */}
+                        {data.map((entry, index) => (
+                            <Cell
+                                key={`income-cell-${index}`}
+                                fill={getBarColor(index)}
+                            />
+                        ))}
 
-                        <CartesianGrid
-                            vertical={false}
-                            stroke="rgba(148,163,184,0.08)"
-                            strokeDasharray="4 4"
-                        />
+                    </Bar>
 
+                </BarChart>
 
-                        {/* X AXIS */}
+            </ResponsiveContainer>
 
-                        <XAxis
-                            dataKey="category"
-                            axisLine={false}
-                            tickLine={false}
-                            tick={{
-                                fontSize: 11,
-                                fill: "#94A3B8",
-                                fontFamily: "Poppins",
-                            }}
-                            dy={8}
-                        />
-
-
-                        {/* Y AXIS */}
-
-                        <YAxis
-                            axisLine={false}
-                            tickLine={false}
-                            width={50}
-                            tick={{
-                                fontSize: 11,
-                                fill: "#94A3B8",
-                                fontFamily: "Poppins",
-                            }}
-                            tickFormatter={(value) => {
-
-                                if (value >= 1000000) {
-                                    return `${(
-                                        value / 1000000
-                                    ).toFixed(1)}M`;
-                                }
-
-                                if (value >= 1000) {
-                                    return `${(
-                                        value / 1000
-                                    ).toFixed(0)}K`;
-                                }
-
-                                return value;
-                            }}
-                        />
-
-
-                        {/* TOOLTIP */}
-
-                        <Tooltip
-                            content={<CustomTooltip />}
-                            cursor={{
-                                fill: "rgba(139,92,246,0.06)",
-                            }}
-                        />
-
-
-                        {/* BAR */}
-
-                        <Bar
-                            dataKey="amount"
-                            radius={[8, 8, 3, 3]}
-                            maxBarSize={48}
-                            animationDuration={900}
-                            animationEasing="ease-out"
-                        >
-
-                            {data.map((entry, index) => (
-                                <Cell
-                                    key={`expense-cell-${index}`}
-                                    fill={getBarColor(index)}
-                                />
-                            ))}
-
-                        </Bar>
-
-                    </BarChart>
-
-                </ResponsiveContainer>
-
-            </div>
-        </>
+        </div>
     );
 };
 
