@@ -15,7 +15,6 @@ const InfoCard = ({
 
     return (
         <div className="info-card">
-
             <div
                 className={`info-card-icon ${
                     color || "bg-purple-500"
@@ -25,17 +24,14 @@ const InfoCard = ({
             </div>
 
             <div className="info-card-content">
-
                 <p className="info-card-label">
                     {label}
                 </p>
 
                 <h3 className="info-card-value">
-                    ${safeValue.toLocaleString("en-US")}
+                    ₹{safeValue.toLocaleString("en-IN")}
                 </h3>
-
             </div>
-
         </div>
     );
 };
