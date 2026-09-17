@@ -17,13 +17,44 @@ const app = express();
 // CORS
 // ===============================
 
-app.use(
-    cors({
-        origin: process.env.CLIENT_URL || "*",
-        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-        allowedHeaders: ["Content-Type", "Authorization"],
-    })
-);
+const corsOptions = {
+    origin: function (origin, callback) {
+        // Allow requests without an origin
+        // and allow local + Vercel frontend
+        if (!origin) {
+            return callback(null, true);
+        }
+
+        const allowedOrigins = [
+            "http://localhost:5173",
+            "http://127.0.0.1:5173",
+        ];
+
+        if (
+            allowedOrigins.includes(origin) ||
+            origin.endsWith(".vercel.app")
+        ) {
+            return callback(null, true);
+        }
+
+        return callback(null, true);
+    },
+
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+
+    allowedHeaders: [
+        "Content-Type",
+        "Authorization",
+    ],
+
+    optionsSuccessStatus: 204,
+};
+
+// Apply CORS before routes
+app.use(cors(corsOptions));
+
+// Explicitly handle preflight requests
+app.options(/.*/, cors(corsOptions));
 
 // ===============================
 // BODY PARSER
@@ -42,8 +73,11 @@ connectDB();
 // ===============================
 
 app.use("/api/v1/auth", authRoutes);
+
 app.use("/api/v1/income", incomeRoutes);
+
 app.use("/api/v1/expense", expenseRoutes);
+
 app.use("/api/v1/dashboard", dashboardRoutes);
 
 // ===============================
