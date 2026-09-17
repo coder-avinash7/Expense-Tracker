@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { LuTrendingUp } from "react-icons/lu";
-import CustomPieChart from "../Charts/CustomPieChart "
-
-
+import CustomPieChart from "../Charts/CustomPieChart ";
 
 const COLORS = [
     "#8B5CF6",
@@ -28,7 +26,6 @@ const RecentIncomeWithChart = ({ data, totalIncome }) => {
         setChartData(dataArr);
 
         return () => {};
-
     }, [data]);
 
     return (
@@ -56,7 +53,9 @@ const RecentIncomeWithChart = ({ data, totalIncome }) => {
                 </div>
 
                 <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-emerald-500/10 border border-emerald-400/10">
+
                     <LuTrendingUp className="text-emerald-400" />
+
                 </div>
 
             </div>
@@ -67,7 +66,7 @@ const RecentIncomeWithChart = ({ data, totalIncome }) => {
                 <CustomPieChart
                     data={chartData}
                     label="Total Income"
-                    totalAmount={`$${Number(totalIncome || 0).toLocaleString()}`}
+                    totalAmount={`₹${Number(totalIncome || 0).toLocaleString("en-IN")}`}
                     showTextAnchor
                     colors={COLORS}
                 />
