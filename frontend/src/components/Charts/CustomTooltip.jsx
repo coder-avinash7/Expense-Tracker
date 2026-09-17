@@ -3,7 +3,6 @@ import React from "react";
 const CustomTooltip = ({ active, payload }) => {
 
     if (active && payload && payload.length) {
-
         return (
             <div className="min-w-[160px] rounded-xl px-4 py-3 bg-[#111936] border border-purple-400/20 shadow-2xl">
 
@@ -12,7 +11,7 @@ const CustomTooltip = ({ active, payload }) => {
                 </p>
 
                 <p className="text-lg font-semibold text-white">
-                    ${Number(payload[0]?.value || 0).toLocaleString()}
+                    ₹{Number(payload[0]?.value || 0).toLocaleString("en-IN")}
                 </p>
 
                 <div className="flex items-center gap-1.5 mt-2">
