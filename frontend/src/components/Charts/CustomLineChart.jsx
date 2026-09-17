@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
     XAxis,
     YAxis,
@@ -28,15 +29,19 @@ const CustomLineChart = ({ data = [] }) => {
                     </p>
 
                     <p className="text-lg font-semibold text-white">
-                        ${Number(transaction?.amount || 0).toLocaleString()}
+                        ₹{Number(
+                            transaction?.amount || 0
+                        ).toLocaleString("en-IN")}
                     </p>
 
                     <div className="flex items-center gap-1.5 mt-2">
+
                         <span className="w-1.5 h-1.5 rounded-full bg-red-400" />
 
                         <span className="text-[11px] text-red-400">
                             Expense
                         </span>
+
                     </div>
 
                 </div>
@@ -46,7 +51,9 @@ const CustomLineChart = ({ data = [] }) => {
         return null;
     };
 
+
     /* Empty State */
+
     if (!data || data.length === 0) {
 
         return (
@@ -72,6 +79,7 @@ const CustomLineChart = ({ data = [] }) => {
         );
     }
 
+
     return (
 
         /*
@@ -79,6 +87,7 @@ const CustomLineChart = ({ data = [] }) => {
          * No bg-white here.
          * The chart is completely transparent.
          */
+
         <div className="w-full h-[300px] mt-6 bg-transparent">
 
             <ResponsiveContainer
@@ -97,6 +106,7 @@ const CustomLineChart = ({ data = [] }) => {
                 >
 
                     {/* Gradient */}
+
                     <defs>
 
                         <linearGradient
@@ -129,14 +139,18 @@ const CustomLineChart = ({ data = [] }) => {
 
                     </defs>
 
+
                     {/* Grid */}
+
                     <CartesianGrid
                         vertical={false}
                         stroke="rgba(148,163,184,0.08)"
                         strokeDasharray="4 4"
                     />
 
+
                     {/* X Axis */}
+
                     <XAxis
                         dataKey="month"
                         axisLine={false}
@@ -148,7 +162,9 @@ const CustomLineChart = ({ data = [] }) => {
                         dy={8}
                     />
 
+
                     {/* Y Axis */}
+
                     <YAxis
                         axisLine={false}
                         tickLine={false}
@@ -175,7 +191,9 @@ const CustomLineChart = ({ data = [] }) => {
                         }}
                     />
 
+
                     {/* Tooltip */}
+
                     <Tooltip
                         content={<CustomTooltip />}
                         cursor={{
@@ -185,7 +203,9 @@ const CustomLineChart = ({ data = [] }) => {
                         }}
                     />
 
+
                     {/* Expense Area */}
+
                     <Area
                         type="monotone"
                         dataKey="amount"
