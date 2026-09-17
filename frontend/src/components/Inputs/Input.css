@@ -1,0 +1,403 @@
+/* =========================================================
+   INPUT CONTAINER
+========================================================= */
+
+.custom-input-container {
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.custom-input-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #8793aa;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   INPUT BOX
+========================================================= */
+
+.custom-input-box {
+    position: relative;
+
+    width: 100%;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(100, 116, 139, 0.25);
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0e1632,
+            #0a1026
+        );
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.custom-input-box:hover {
+    border-color: rgba(139, 92, 246, 0.40);
+}
+
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.custom-input-box:focus-within {
+    border-color: rgba(139, 92, 246, 0.70);
+
+    background:
+        linear-gradient(
+            135deg,
+            #121b3c,
+            #0b122b
+        );
+
+    box-shadow:
+        0 0 0 3px rgba(139, 92, 246, 0.08),
+        0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================================
+   LEFT ICON
+========================================================= */
+
+.custom-input-left-icon {
+    position: absolute;
+
+    left: 11px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   ICON COLORS
+========================================================= */
+
+.input-icon-email {
+    color: #a78bfa;
+
+    background: rgba(139, 92, 246, 0.10);
+}
+
+.input-icon-password {
+    color: #c084fc;
+
+    background: rgba(168, 85, 247, 0.10);
+}
+
+.input-icon-money {
+    color: #34d399;
+
+    background: rgba(16, 185, 129, 0.10);
+}
+
+.input-icon-date {
+    color: #22d3ee;
+
+    background: rgba(6, 182, 212, 0.10);
+}
+
+.input-icon-income {
+    color: #a78bfa;
+
+    background: rgba(139, 92, 246, 0.10);
+}
+
+.input-icon-default {
+    color: #94a3b8;
+
+    background: rgba(148, 163, 184, 0.08);
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.custom-input {
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
+
+    padding: 0 14px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #f8fafc !important;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   INPUT WITH ICON
+========================================================= */
+
+.custom-input-with-icon {
+    padding-left: 53px;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+.custom-input::placeholder {
+    color: #64748b;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   AUTOFILL
+========================================================= */
+
+.custom-input:-webkit-autofill,
+.custom-input:-webkit-autofill:hover,
+.custom-input:-webkit-autofill:focus {
+
+    -webkit-text-fill-color: #f8fafc;
+
+    -webkit-box-shadow:
+        0 0 0 1000px #0e1632 inset;
+
+    transition:
+        background-color
+        5000s
+        ease-in-out
+        0s;
+}
+
+
+/* =========================================================
+   NUMBER INPUT
+========================================================= */
+
+.custom-input[type="number"] {
+    appearance: textfield;
+
+    -moz-appearance: textfield;
+}
+
+.custom-input[type="number"]::-webkit-inner-spin-button,
+.custom-input[type="number"]::-webkit-outer-spin-button {
+
+    -webkit-appearance: none;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   DATE INPUT
+========================================================= */
+
+.custom-input[type="date"] {
+
+    color: #cbd5e1 !important;
+
+    color-scheme: dark;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   DATE TEXT
+========================================================= */
+
+.custom-input[type="date"]::-webkit-datetime-edit {
+    color: #cbd5e1 !important;
+}
+
+.custom-input[type="date"]::-webkit-datetime-edit-month-field,
+.custom-input[type="date"]::-webkit-datetime-edit-day-field,
+.custom-input[type="date"]::-webkit-datetime-edit-year-field {
+
+    color: #cbd5e1 !important;
+}
+
+.custom-input[type="date"]::-webkit-datetime-edit-text {
+    color: #64748b !important;
+}
+
+
+/* =========================================================
+   REMOVE NATIVE WHITE CALENDAR ICON
+========================================================= */
+
+.custom-input[type="date"]::-webkit-calendar-picker-indicator {
+
+    opacity: 0;
+
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   DATE BOX
+========================================================= */
+
+.custom-date-box {
+    position: relative;
+}
+
+
+/* =========================================================
+   PASSWORD BUTTON
+========================================================= */
+
+.custom-password-button {
+
+    position: absolute;
+
+    right: 9px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(148, 163, 184, 0.10);
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    color: #64748b;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+
+/* =========================================================
+   PASSWORD HOVER
+========================================================= */
+
+.custom-password-button:hover {
+
+    color: #c4b5fd;
+
+    background:
+        rgba(139, 92, 246, 0.10);
+
+    border-color:
+        rgba(139, 92, 246, 0.20);
+}
+
+
+/* =========================================================
+   PASSWORD ICON
+========================================================= */
+
+.password-eye {
+
+    color: #686f87;
+
+    transition: 0.2s;
+}
+
+.password-eye-active {
+
+    color: #b87aff;
+
+    transition: 0.2s;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .custom-input-box {
+        height: 50px;
+    }
+
+    .custom-input {
+        font-size: 12px;
+    }
+
+    .custom-input-label {
+        font-size: 10px;
+    }
+}

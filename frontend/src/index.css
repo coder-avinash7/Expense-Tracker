@@ -1,0 +1,1906 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+    --font-display: "Poppins", "sans-serif";
+    --breakpoint-3xl: 1920px;
+    --color-primary: #875cf5;
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+@layer base {
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        font-family: var(--font-display);
+        background: #070b1f;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+
+        background:
+            radial-gradient(
+                circle at 15% 10%,
+                rgba(124, 58, 237, 0.16),
+                transparent 28%
+            ),
+            radial-gradient(
+                circle at 85% 20%,
+                rgba(6, 182, 212, 0.10),
+                transparent 25%
+            ),
+            radial-gradient(
+                circle at 70% 90%,
+                rgba(168, 85, 247, 0.10),
+                transparent 30%
+            ),
+            #070b1f;
+
+        color: #f8fafc;
+    }
+
+    button,
+    input {
+        font-family: inherit;
+    }
+
+    button {
+        cursor: pointer;
+    }
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+*::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #080c20;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        180deg,
+        #8b5cf6,
+        #06b6d4
+    );
+
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+        180deg,
+        #a855f7,
+        #22d3ee
+    );
+}
+
+
+/* =========================================================
+   GLOBAL INPUT BOX
+========================================================= */
+
+.input-box {
+    @apply w-full flex items-center justify-between gap-3
+    text-sm text-white
+    rounded-xl px-4 py-3
+    mb-4 mt-3
+    outline-none;
+
+    background: #0b1128 !important;
+
+    border: 1px solid rgba(100, 116, 139, 0.25);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.input-box:hover {
+    background: #0d1430 !important;
+
+    border-color: rgba(139, 92, 246, 0.35);
+}
+
+.input-box:focus-within {
+    background: #0d1430 !important;
+
+    border-color: rgba(139, 92, 246, 0.70);
+
+    box-shadow:
+        0 0 0 3px rgba(139, 92, 246, 0.08),
+        0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+.input-box input {
+    color: #f8fafc !important;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    outline: none !important;
+}
+
+.input-box input::placeholder {
+    color: #64748b !important;
+}
+
+
+/* =========================================================
+   CUSTOM INPUT COMPONENT
+========================================================= */
+
+.custom-input-container {
+    width: 100%;
+    margin: 0;
+}
+
+.custom-input-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #94a3b8 !important;
+
+    font-size: 11px;
+
+    font-weight: 500;
+}
+
+.custom-input-box {
+    position: relative;
+
+    width: 100%;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(17, 25, 54, 0.98),
+            rgba(10, 16, 38, 0.98)
+        ) !important;
+
+    border: 1px solid rgba(100, 116, 139, 0.25);
+
+    border-radius: 11px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.custom-input-box:hover {
+    border-color: rgba(139, 92, 246, 0.35);
+}
+
+.custom-input-box:focus-within {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(22, 32, 69, 1),
+            rgba(11, 18, 42, 1)
+        ) !important;
+
+    border-color: rgba(139, 92, 246, 0.70);
+
+    box-shadow:
+        0 0 0 3px rgba(139, 92, 246, 0.08),
+        0 8px 25px rgba(0, 0, 0, 0.20);
+}
+
+.custom-input-left-icon {
+    position: absolute;
+
+    left: 11px;
+
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    pointer-events: none;
+
+    z-index: 2;
+}
+
+.input-icon-email {
+    color: #a78bfa;
+    background: rgba(139, 92, 246, 0.10);
+}
+
+.input-icon-password {
+    color: #c084fc;
+    background: rgba(168, 85, 247, 0.10);
+}
+
+.input-icon-money {
+    color: #34d399;
+    background: rgba(16, 185, 129, 0.10);
+}
+
+.input-icon-date {
+    color: #22d3ee;
+    background: rgba(6, 182, 212, 0.10);
+}
+
+.input-icon-income {
+    color: #a78bfa;
+    background: rgba(139, 92, 246, 0.10);
+}
+
+.input-icon-default {
+    color: #94a3b8;
+    background: rgba(148, 163, 184, 0.08);
+}
+
+.custom-input {
+    width: 100%;
+    height: 100%;
+
+    padding: 0 14px;
+
+    color: #f8fafc !important;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    outline: none !important;
+
+    font-size: 13px;
+}
+
+.custom-input-with-icon {
+    padding-left: 53px;
+}
+
+.custom-input-password {
+    padding-right: 50px;
+}
+
+.custom-input::placeholder {
+    color: #64748b !important;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   NUMBER INPUT
+========================================================= */
+
+.custom-input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.custom-input[type="number"]::-webkit-inner-spin-button,
+.custom-input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* =========================================================
+   DATE INPUT
+========================================================= */
+
+.custom-input[type="date"] {
+    color: #cbd5e1 !important;
+
+    color-scheme: dark;
+
+    cursor: pointer;
+}
+
+.custom-input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0.55;
+
+    cursor: pointer;
+
+    filter: invert(1);
+
+    margin-right: 5px;
+}
+
+
+/* =========================================================
+   PASSWORD BUTTON
+========================================================= */
+
+.custom-password-button {
+    position: absolute;
+
+    right: 9px;
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #64748b;
+
+    background: rgba(255, 255, 255, 0.035);
+
+    border: 1px solid rgba(148, 163, 184, 0.10);
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.custom-password-button:hover {
+    color: #c4b5fd;
+
+    background: rgba(139, 92, 246, 0.12);
+
+    border-color: rgba(139, 92, 246, 0.25);
+}
+
+.password-eye {
+    color: #64748b;
+}
+
+.password-eye-active {
+    color: #a78bfa;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+========================================================= */
+
+.btn-primary {
+    @apply w-full text-sm font-semibold text-white
+    p-[12px] rounded-xl my-1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c026d3 0%,
+            #8b5cf6 48%,
+            #6366f1 100%
+        );
+
+    box-shadow:
+        0 10px 30px rgba(124, 58, 237, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 14px 35px rgba(139, 92, 246, 0.4);
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card {
+    @apply p-6 rounded-2xl;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 34, 72, 0.94),
+            rgba(12, 18, 43, 0.94)
+        );
+
+    border: 1px solid rgba(99, 102, 241, 0.25);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    backdrop-filter: blur(18px);
+}
+
+.card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    top: -100px;
+    right: -70px;
+
+    background: rgba(139, 92, 246, 0.12);
+
+    filter: blur(50px);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CARD BUTTON
+========================================================= */
+
+.card-btn {
+    @apply flex items-center gap-2
+    text-xs font-medium
+    px-4 py-2 rounded-lg
+    cursor-pointer;
+
+    color: #cbd5e1;
+
+    background: rgba(255, 255, 255, 0.045);
+
+    border: 1px solid rgba(148, 163, 184, 0.18);
+
+    transition: all 0.25s ease;
+}
+
+.card-btn:hover {
+    color: white;
+
+    background: rgba(139, 92, 246, 0.16);
+
+    border-color: rgba(139, 92, 246, 0.45);
+}
+
+
+/* =========================================================
+   ADD BUTTON
+========================================================= */
+
+.add-btn {
+    @apply flex items-center gap-1.5
+    text-xs md:text-sm
+    font-medium
+    whitespace-nowrap
+    px-4 py-2
+    rounded-lg
+    cursor-pointer;
+
+    color: #d8b4fe;
+
+    background: rgba(139, 92, 246, 0.12);
+
+    border: 1px solid rgba(139, 92, 246, 0.30);
+
+    transition: all 0.25s ease;
+}
+
+.add-btn:hover {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9333ea,
+            #6366f1
+        );
+
+    border-color: transparent;
+
+    box-shadow:
+        0 8px 25px rgba(139, 92, 246, 0.25);
+}
+
+.add-btn-fill {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9333ea,
+            #6366f1
+        );
+}
+
+
+/* =========================================================
+   TEXT HELPERS
+========================================================= */
+
+.text-gray-950 {
+    color: #f8fafc !important;
+}
+
+.text-gray-900 {
+    color: #f1f5f9 !important;
+}
+
+.text-gray-800 {
+    color: #e2e8f0 !important;
+}
+
+.text-gray-700 {
+    color: #cbd5e1 !important;
+}
+
+.text-gray-600 {
+    color: #94a3b8 !important;
+}
+
+.text-gray-500 {
+    color: #94a3b8 !important;
+}
+
+.text-gray-400 {
+    color: #7f8aa8 !important;
+}
+
+
+/* =========================================================
+   RECHARTS DARK MODE
+========================================================= */
+
+.recharts-wrapper {
+    background: transparent !important;
+}
+
+.recharts-responsive-container {
+    background: transparent !important;
+}
+
+.recharts-surface {
+    background: transparent !important;
+}
+
+.recharts-wrapper svg {
+    background: transparent !important;
+}
+
+.recharts-cartesian-axis-tick-value {
+    fill: #94a3b8 !important;
+}
+
+.recharts-text {
+    fill: #94a3b8;
+}
+
+.recharts-cartesian-axis-line {
+    stroke: transparent !important;
+}
+
+.recharts-cartesian-axis-tick-line {
+    stroke: transparent !important;
+}
+
+.recharts-default-tooltip {
+    background: #111936 !important;
+
+    border: 1px solid rgba(139, 92, 246, 0.35) !important;
+
+    border-radius: 12px !important;
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+.recharts-tooltip-wrapper {
+    outline: none !important;
+}
+
+
+/* =========================================================
+   INFO CARDS
+========================================================= */
+
+.info-card {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    width: 100%;
+
+    min-height: 108px;
+
+    padding: 22px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 34, 72, 0.96),
+            rgba(12, 18, 43, 0.96)
+        ) !important;
+
+    border: 1px solid rgba(99, 102, 241, 0.25);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(139, 92, 246, 0.42);
+
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.3),
+        0 0 25px rgba(139, 92, 246, 0.08);
+}
+
+.info-card-icon {
+    position: relative;
+    z-index: 1;
+
+    width: 56px;
+    height: 56px;
+
+    min-width: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: white;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.info-card-content {
+    position: relative;
+    z-index: 1;
+
+    min-width: 0;
+}
+
+.info-card-label {
+    margin: 0 0 5px;
+
+    color: #94a3b8 !important;
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+.info-card-value {
+    margin: 0;
+
+    color: #ffffff !important;
+
+    font-size: 25px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+}
+
+
+/* =========================================================
+   ADD INCOME FORM
+   MATCHES YOUR CURRENT AddIncomeForm.jsx
+========================================================= */
+
+.income-form {
+    width: 100%;
+
+    padding: 2px;
+
+    color: #f8fafc;
+}
+
+
+/* =========================================================
+   ICON SECTION
+========================================================= */
+
+.income-icon-section {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 4px 0 20px;
+
+    margin-bottom: 8px;
+}
+
+.income-icon-picker {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139, 92, 246, 0.14),
+            rgba(99, 102, 241, 0.07)
+        );
+
+    border: 1px solid rgba(139, 92, 246, 0.25);
+
+    transition: all 0.2s ease;
+}
+
+.income-icon-picker:hover {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139, 92, 246, 0.22),
+            rgba(99, 102, 241, 0.12)
+        );
+
+    border-color: rgba(139, 92, 246, 0.55);
+
+    box-shadow:
+        0 8px 25px rgba(139, 92, 246, 0.14);
+
+    transform: translateY(-1px);
+}
+
+.income-icon-picker button {
+    width: 100% !important;
+    height: 100% !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    color: #a78bfa !important;
+}
+
+.income-icon-text {
+    min-width: 0;
+}
+
+.income-icon-text h4 {
+    margin: 0;
+
+    color: #f8fafc;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.income-icon-text p {
+    margin: 4px 0 0;
+
+    color: #64748b;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   INPUT WRAPPER
+========================================================= */
+
+.income-input-wrapper {
+    position: relative;
+
+    width: 100%;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   INPUT ICON
+========================================================= */
+
+.income-input-icon {
+    position: absolute;
+
+    left: 12px;
+
+    top: 50%;
+
+    transform: translateY(2px);
+
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    color: #a78bfa;
+
+    background: rgba(139, 92, 246, 0.09);
+}
+
+.income-money-icon {
+    color: #34d399;
+
+    background: rgba(16, 185, 129, 0.09);
+}
+
+.income-date-icon {
+    color: #22d3ee;
+
+    background: rgba(6, 182, 212, 0.09);
+}
+
+
+/* =========================================================
+   FORM INPUT
+========================================================= */
+
+.income-input-wrapper .custom-input-container {
+    margin: 0 !important;
+}
+
+.income-input-wrapper .custom-input-label {
+    color: #94a3b8 !important;
+
+    margin-bottom: 7px !important;
+}
+
+.income-input-wrapper .custom-input-box {
+    height: 48px !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0e1632,
+            #0a1026
+        ) !important;
+
+    border: 1px solid rgba(100, 116, 139, 0.25) !important;
+
+    border-radius: 11px !important;
+}
+
+.income-input-wrapper .custom-input-box:hover {
+    border-color: rgba(139, 92, 246, 0.38) !important;
+}
+
+.income-input-wrapper .custom-input-box:focus-within {
+    background:
+        linear-gradient(
+            135deg,
+            #121b3c,
+            #0b122b
+        ) !important;
+
+    border-color: rgba(139, 92, 246, 0.68) !important;
+
+    box-shadow:
+        0 0 0 3px rgba(139, 92, 246, 0.08),
+        0 8px 25px rgba(0, 0, 0, 0.20) !important;
+}
+
+
+/* =========================================================
+   HIDE DUPLICATE ICON FROM INPUT COMPONENT
+   The form already has its own icon.
+========================================================= */
+
+.income-input-wrapper .custom-input-left-icon {
+    display: none !important;
+}
+
+.income-input-wrapper .custom-input {
+    padding-left: 54px !important;
+
+    color: #f8fafc !important;
+
+    background: transparent !important;
+}
+
+.income-input-wrapper .custom-input::placeholder {
+    color: #64748b !important;
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.income-input-wrapper .custom-input[type="date"] {
+    color: #cbd5e1 !important;
+
+    color-scheme: dark;
+}
+
+.income-input-wrapper .custom-input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0.6;
+
+    filter: invert(1);
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   SUBMIT WRAPPER
+========================================================= */
+
+.income-submit-wrapper {
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    margin-top: 24px;
+
+    padding-top: 4px;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.income-submit-btn {
+    height: 46px;
+
+    min-width: 145px;
+
+    padding: 0 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #a855f7 0%,
+            #7c3aed 50%,
+            #6366f1 100%
+        );
+
+    border: none;
+
+    border-radius: 11px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(124, 58, 237, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.income-submit-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 30px rgba(124, 58, 237, 0.40);
+}
+
+.income-submit-btn:active {
+    transform: translateY(0);
+}
+
+.income-submit-btn svg {
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   MODAL DARK OVERRIDE
+========================================================= */
+
+/*
+   This prevents the Add Income modal itself from becoming white.
+*/
+
+[role="dialog"],
+.modal,
+.modal-content {
+    color: #f8fafc;
+}
+
+
+/* Common white modal backgrounds */
+
+.modal-content,
+[role="dialog"] > div {
+    background:
+        linear-gradient(
+            145deg,
+            #111936,
+            #0b1128
+        ) !important;
+
+    color: #f8fafc !important;
+
+    border-color: rgba(99, 102, 241, 0.25) !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .card {
+        padding: 18px;
+
+        border-radius: 16px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    .info-card {
+        min-height: 95px;
+
+        padding: 18px;
+
+        gap: 15px;
+    }
+
+    .info-card-icon {
+        width: 48px;
+        height: 48px;
+
+        min-width: 48px;
+
+        font-size: 21px;
+    }
+
+    .info-card-value {
+        font-size: 21px;
+    }
+
+    .info-card-label {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .income-form {
+        padding: 0;
+    }
+
+    .income-icon-section {
+        gap: 11px;
+
+        padding-bottom: 18px;
+    }
+
+    .income-icon-picker {
+        width: 46px;
+        height: 46px;
+    }
+
+    .income-icon-text h4 {
+        font-size: 13px;
+    }
+
+    .income-icon-text p {
+        font-size: 10px;
+    }
+
+    .income-submit-wrapper {
+        margin-top: 20px;
+    }
+
+    .income-submit-btn {
+        width: 100%;
+
+        min-width: 0;
+    }
+}
+/* =========================================================
+   DASHBOARD LIGHT / PASTEL UI OVERRIDE
+   CSS ONLY — no JSX or backend changes
+========================================================= */
+
+body:has(aside) {
+    background:
+        radial-gradient(circle at 8% 15%, rgba(93, 214, 194, 0.20), transparent 25%),
+        radial-gradient(circle at 86% 12%, rgba(255, 205, 132, 0.24), transparent 27%),
+        radial-gradient(circle at 74% 78%, rgba(246, 171, 202, 0.18), transparent 28%),
+        linear-gradient(135deg, #f4f7f7 0%, #f8f7fb 48%, #fff8f3 100%) !important;
+    color: #303340 !important;
+}
+
+body:has(aside) .min-h-screen.bg-\[\#070b1f\] {
+    background: transparent !important;
+    color: #303340 !important;
+}
+
+/* Navbar */
+body:has(aside) header {
+    height: 80px !important;
+    padding-left: 18px !important;
+    padding-right: 24px !important;
+    background: rgba(255, 255, 255, 0.66) !important;
+    border-bottom: 1px solid rgba(116, 126, 145, 0.16) !important;
+    box-shadow: 0 5px 25px rgba(86, 91, 110, 0.06);
+    backdrop-filter: blur(22px) saturate(130%);
+}
+
+body:has(aside) header .bg-gradient-to-br.from-purple-500.to-indigo-600 {
+    background: linear-gradient(135deg, #91e59d, #50d6b6) !important;
+    box-shadow: 0 8px 22px rgba(69, 205, 160, 0.22) !important;
+}
+
+body:has(aside) header h2 {
+    color: #363946 !important;
+    font-weight: 700 !important;
+}
+
+body:has(aside) header p,
+body:has(aside) header .text-gray-500 {
+    color: #89909e !important;
+}
+
+body:has(aside) header .bg-white\/\[0\.04\] {
+    background: rgba(255, 255, 255, 0.72) !important;
+    border-color: rgba(111, 120, 140, 0.20) !important;
+    box-shadow: 0 5px 18px rgba(88, 93, 110, 0.07);
+}
+
+body:has(aside) header input {
+    color: #454957 !important;
+}
+
+body:has(aside) header input::placeholder {
+    color: #a0a6b2 !important;
+}
+
+body:has(aside) header .text-gray-300 {
+    color: #59606d !important;
+}
+
+body:has(aside) header .border-white\/10 {
+    border-color: rgba(104, 113, 132, 0.18) !important;
+}
+
+body:has(aside) header .bg-gradient-to-br.from-purple-300.to-pink-300 {
+    background: #f4f1ed !important;
+    border: 1px solid rgba(96, 100, 112, 0.12);
+    box-shadow: 0 4px 13px rgba(74, 78, 91, 0.10);
+}
+
+/* Sidebar */
+body:has(aside) aside {
+    width: 220px !important;
+    min-height: calc(100vh - 80px) !important;
+    top: 80px !important;
+    padding: 18px 8px !important;
+    background: rgba(236, 243, 242, 0.72) !important;
+    border-right: 1px solid rgba(116, 126, 145, 0.15) !important;
+    box-shadow: 8px 0 30px rgba(79, 92, 103, 0.045);
+    backdrop-filter: blur(20px) saturate(120%);
+}
+
+body:has(aside) aside .border-2 {
+    border-color: rgba(78, 211, 171, 0.32) !important;
+}
+
+body:has(aside) aside h5 {
+    color: #3c404c !important;
+}
+
+body:has(aside) aside .text-gray-500,
+body:has(aside) aside .text-gray-400 {
+    color: #737b88 !important;
+}
+
+/* Sidebar menu buttons */
+body:has(aside) aside button {
+    color: #404653 !important;
+    border: 1px solid transparent;
+}
+
+body:has(aside) aside button:hover {
+    color: #30343f !important;
+    background: rgba(255, 255, 255, 0.58) !important;
+    border-color: rgba(106, 118, 130, 0.12) !important;
+}
+
+body:has(aside) aside button.bg-gradient-to-r.from-purple-600.to-indigo-600 {
+    color: #ffffff !important;
+    background: linear-gradient(90deg, #77e2ae, #34cbb6) !important;
+    border-color: rgba(255, 255, 255, 0.55) !important;
+    box-shadow:
+        0 7px 0 rgba(28, 167, 139, 0.30),
+        0 13px 26px rgba(35, 190, 156, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55) !important;
+}
+
+/* Upgrade card */
+body:has(aside) aside .bg-gradient-to-br.from-purple-600\/25.to-indigo-600\/10 {
+    background: linear-gradient(145deg, rgba(143, 93, 245, 0.94), rgba(111, 67, 224, 0.94)) !important;
+    border-color: rgba(255, 255, 255, 0.22) !important;
+    box-shadow: 0 12px 25px rgba(113, 76, 213, 0.22);
+}
+
+body:has(aside) aside .bg-gradient-to-br.from-purple-600\/25.to-indigo-600\/10 .text-gray-400 {
+    color: rgba(255, 255, 255, 0.72) !important;
+}
+
+body:has(aside) aside .bg-gradient-to-br.from-purple-600\/25.to-indigo-600\/10 button {
+    color: #ffffff !important;
+    background: linear-gradient(90deg, #ff72ad, #ff4f9a) !important;
+    border: 0 !important;
+    padding: 10px 28px !important;
+    border-radius: 8px !important;
+    margin-top: 12px !important;
+    box-shadow: 0 7px 18px rgba(255, 65, 145, 0.24);
+}
+
+/* Main content spacing */
+body:has(aside) main {
+    padding: 26px 26px 36px !important;
+}
+
+body:has(aside) main > div {
+    max-width: 1500px !important;
+}
+
+/* Summary cards */
+body:has(aside) .info-card {
+    min-height: 122px;
+    padding: 22px 25px;
+    gap: 19px;
+    border-radius: 17px;
+    border: 2px solid rgba(255, 255, 255, 0.78) !important;
+    box-shadow:
+        0 7px 0 rgba(77, 110, 94, 0.13),
+        0 17px 30px rgba(70, 82, 91, 0.16),
+        0 26px 45px rgba(70, 82, 91, 0.08),
+        inset 0 2px 0 rgba(255, 255, 255, 0.92),
+        inset 0 -2px 0 rgba(55, 80, 67, 0.08) !important;
+}
+
+body:has(aside) .info-card:nth-child(1) {
+    background: linear-gradient(105deg, #efffd3 0%, #b8f5ae 28%, #78e5a5 62%, #39d4b0 100%) !important;
+    border-color: rgba(77, 224, 132, 0.72) !important;
+    box-shadow:
+        0 7px 0 rgba(45, 176, 112, 0.22),
+        0 17px 34px rgba(55, 194, 123, 0.27),
+        0 27px 50px rgba(55, 194, 123, 0.13),
+        inset 0 2px 0 rgba(255,255,255,.92),
+        inset 0 -3px 0 rgba(30, 139, 92, 0.10) !important;
+}
+
+body:has(aside) .info-card:nth-child(2) {
+    background: linear-gradient(105deg, #f1d7ff 0%, #c99af5 56%, #9b6be9 100%) !important;
+    border-color: rgba(177, 117, 241, 0.58) !important;
+    box-shadow:
+        0 7px 0 rgba(105, 67, 177, 0.18),
+        0 17px 34px rgba(137, 93, 218, 0.25),
+        0 27px 50px rgba(137, 93, 218, 0.11),
+        inset 0 2px 0 rgba(255,255,255,.92),
+        inset 0 -3px 0 rgba(92, 54, 153, 0.10) !important;
+}
+
+body:has(aside) .info-card:nth-child(3) {
+    background: linear-gradient(105deg, #ffd8c1 0%, #ffad9b 55%, #ff7970 100%) !important;
+    border-color: rgba(255, 158, 130, 0.58) !important;
+    box-shadow:
+        0 7px 0 rgba(190, 83, 73, 0.17),
+        0 17px 34px rgba(240, 113, 98, 0.24),
+        0 27px 50px rgba(240, 113, 98, 0.11),
+        inset 0 2px 0 rgba(255,255,255,.92),
+        inset 0 -3px 0 rgba(170, 72, 65, 0.10) !important;
+}
+
+body:has(aside) .info-card-icon {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+    color: #ffffff !important;
+    border: 0 !important;
+    box-shadow: 0 8px 17px rgba(64, 103, 82, 0.14) !important;
+}
+
+body:has(aside) .info-card:nth-child(1) .info-card-icon {
+    background: linear-gradient(135deg, #72e36f, #55d7b1) !important;
+}
+
+body:has(aside) .info-card:nth-child(2) .info-card-icon {
+    background: linear-gradient(135deg, #bd72f0, #965be6) !important;
+}
+
+body:has(aside) .info-card:nth-child(3) .info-card-icon {
+    background: linear-gradient(135deg, #ff9150, #ff6a49) !important;
+}
+
+body:has(aside) .info-card-label {
+    color: #3f4651 !important;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+body:has(aside) .info-card-value {
+    color: #30343b !important;
+    font-size: 28px;
+    font-weight: 750;
+    letter-spacing: -0.7px;
+}
+
+/* Main dashboard cards */
+body:has(aside) .card {
+    padding: 25px 27px !important;
+    border-radius: 20px !important;
+    background: rgba(255, 255, 255, 0.67) !important;
+    border: 1px solid rgba(123, 130, 145, 0.15) !important;
+    box-shadow:
+        0 7px 0 rgba(92, 101, 116, 0.12),
+        0 18px 38px rgba(76, 84, 101, 0.15),
+        0 30px 55px rgba(76, 84, 101, 0.08),
+        inset 0 2px 0 rgba(255, 255, 255, 0.94),
+        inset 0 -3px 0 rgba(85, 91, 105, 0.06) !important;
+    backdrop-filter: blur(18px) saturate(115%);
+}
+
+body:has(aside) .card::before {
+    width: 190px;
+    height: 190px;
+    background: rgba(183, 214, 231, 0.14);
+}
+
+body:has(aside) .card h5 {
+    color: #515565 !important;
+    font-weight: 500;
+}
+
+body:has(aside) .card-btn {
+    color: #74798a !important;
+    background: rgba(228, 228, 237, 0.60) !important;
+    border-color: rgba(124, 130, 150, 0.14) !important;
+    box-shadow: 0 4px 12px rgba(88, 91, 111, 0.05);
+}
+
+body:has(aside) .card-btn:hover {
+    color: #464a59 !important;
+    background: rgba(218, 220, 235, 0.88) !important;
+    border-color: rgba(117, 111, 165, 0.25) !important;
+}
+
+/* Transaction rows */
+body:has(aside) .card .group.relative.flex.items-center {
+    margin-top: 5px !important;
+    padding: 10px 8px !important;
+    border-color: transparent !important;
+    border-radius: 12px !important;
+}
+
+body:has(aside) .card .group.relative.flex.items-center:hover {
+    background: rgba(255, 255, 255, 0.60) !important;
+    border-color: rgba(108, 116, 132, 0.10) !important;
+}
+
+body:has(aside) .card .group.relative.flex.items-center > div:first-child {
+    width: 55px !important;
+    height: 55px !important;
+    border: 0 !important;
+    background: linear-gradient(135deg, #79d9d1, #53c6b5) !important;
+    color: #ffffff !important;
+    box-shadow: 0 7px 16px rgba(65, 180, 162, 0.15);
+}
+
+body:has(aside) .card .group.relative.flex.items-center:nth-child(2n) > div:first-child {
+    background: linear-gradient(135deg, #91e7c5, #38d6a7) !important;
+}
+
+body:has(aside) .card .group.relative.flex.items-center:nth-child(3n) > div:first-child {
+    background: linear-gradient(135deg, #67d5de, #4bb8d1) !important;
+}
+
+body:has(aside) .card .group.relative.flex.items-center p.text-gray-200 {
+    color: #454a58 !important;
+}
+
+body:has(aside) .card .group.relative.flex.items-center p.text-gray-500 {
+    color: #858b98 !important;
+}
+
+body:has(aside) .card .group.relative.flex.items-center > div:last-child > div {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+body:has(aside) .card .group.relative.flex.items-center > div:last-child > div.bg-red-400\/10 {
+    background: rgba(255, 177, 177, 0.52) !important;
+    color: #ef6868 !important;
+}
+
+body:has(aside) .card .group.relative.flex.items-center > div:last-child > div.bg-emerald-400\/10 {
+    background: rgba(158, 239, 199, 0.56) !important;
+    color: #20a979 !important;
+}
+
+/* Pie chart text / legend */
+body:has(aside) .recharts-text {
+    fill: #555a68 !important;
+}
+
+body:has(aside) .recharts-legend-item-text,
+body:has(aside) .card .text-gray-700 {
+    color: #555a68 !important;
+}
+
+/* Recharts center amount uses inline SVG fill, so override by SVG text position */
+body:has(aside) .recharts-wrapper svg text {
+    fill: #555a68 !important;
+}
+
+/* Lower dashboard chart cards */
+body:has(aside) .recharts-cartesian-axis-tick-value {
+    fill: #8a909b !important;
+}
+
+body:has(aside) .recharts-default-tooltip {
+    background: rgba(255, 255, 255, 0.96) !important;
+    color: #454a58 !important;
+    border-color: rgba(119, 126, 144, 0.18) !important;
+    box-shadow: 0 15px 35px rgba(70, 75, 90, 0.14) !important;
+}
+
+/* Make dashboard vertical rhythm closer to reference */
+body:has(aside) main .my-5 {
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+}
+
+body:has(aside) main .grid {
+    row-gap: 24px;
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    body:has(aside) main {
+        padding-left: 25px !important;
+        padding-right: 25px !important;
+    }
+
+    body:has(aside) main > div > .grid:first-child {
+        gap: 24px !important;
+    }
+
+    body:has(aside) main > div > .grid:nth-child(2) {
+        gap: 24px !important;
+        margin-top: 24px !important;
+    }
+}
+
+/* Tablet / mobile */
+@media (max-width: 1023px) {
+    body:has(aside) main {
+        padding: 18px !important;
+    }
+
+    body:has(aside) .info-card {
+        min-height: 105px;
+        padding: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    body:has(aside) header {
+        height: 72px !important;
+    }
+
+    body:has(aside) main {
+        padding: 15px !important;
+    }
+
+    body:has(aside) .card {
+        padding: 18px !important;
+    }
+
+    body:has(aside) .info-card-value {
+        font-size: 22px;
+    }
+}
+
+
+/* =========================================================
+   EXTRA 3D DEPTH / STRONGER GREEN GRADIENT
+========================================================= */
+
+body:has(aside) .info-card,
+body:has(aside) .card {
+    transform: translateY(0);
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+body:has(aside) .info-card:hover {
+    transform: translateY(-3px);
+}
+
+body:has(aside) .card:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 9px 0 rgba(92, 101, 116, 0.12),
+        0 22px 42px rgba(76, 84, 101, 0.18),
+        0 34px 60px rgba(76, 84, 101, 0.09),
+        inset 0 2px 0 rgba(255, 255, 255, 0.96),
+        inset 0 -3px 0 rgba(85, 91, 105, 0.06) !important;
+}
+
+/* Stronger green linear gradient for the active navigation */
+body:has(aside) aside button.bg-gradient-to-r.from-purple-600.to-indigo-600 {
+    background: linear-gradient(90deg, #8df0b2 0%, #48dfad 48%, #20c9b0 100%) !important;
+}
+
+/* Stronger green glow behind the balance card */
+body:has(aside) .info-card:nth-child(1)::after {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border-radius: 13px;
+    pointer-events: none;
+    box-shadow: inset 0 0 22px rgba(255, 255, 255, 0.20);
+}
+
+
+/* =========================================================
+   DASHBOARD SECTION CARDS - 3D GLASS EFFECT
+   Recent Transactions / Financial Overview / Expenses /
+   Last 30 Days Expenses / Income / Last 60 Days Income
+   CSS ONLY - NO JSX CHANGES
+========================================================= */
+
+/* All six dashboard cards get a stronger raised 3D surface */
+body:has(aside) main > div > .grid:nth-child(2) > .card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px !important;
+    border: 1px solid rgba(255, 255, 255, 0.72) !important;
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.88),
+        rgba(245, 247, 250, 0.76)
+    ) !important;
+    box-shadow:
+        0 5px 0 rgba(90, 100, 112, 0.10),
+        0 12px 22px rgba(75, 84, 98, 0.14),
+        0 25px 48px rgba(75, 84, 98, 0.12),
+        inset 0 2px 0 rgba(255, 255, 255, 0.96),
+        inset 0 -3px 0 rgba(80, 90, 105, 0.055) !important;
+    transform: translateY(0);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+/* Soft light reflection across every card */
+body:has(aside) main > div > .grid:nth-child(2) > .card::after {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    top: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.95),
+        transparent
+    );
+    pointer-events: none;
+}
+
+body:has(aside) main > div > .grid:nth-child(2) > .card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 7px 0 rgba(90, 100, 112, 0.11),
+        0 17px 30px rgba(75, 84, 98, 0.17),
+        0 32px 58px rgba(75, 84, 98, 0.13),
+        inset 0 2px 0 rgba(255, 255, 255, 1),
+        inset 0 -3px 0 rgba(80, 90, 105, 0.055) !important;
+}
+
+
+/* ---------------------------------------------------------
+   1. RECENT TRANSACTIONS
+--------------------------------------------------------- */
+body:has(aside) main > div > .grid:nth-child(2) > .card:nth-child(1) {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.94) 0%,
+        rgba(240, 253, 248, 0.84) 100%
+    ) !important;
+    border-color: rgba(100, 211, 181, 0.25) !important;
+    box-shadow:
+        0 5px 0 rgba(63, 169, 143, 0.11),
+        0 14px 27px rgba(62, 169, 143, 0.15),
+        0 28px 52px rgba(62, 169, 143, 0.10),
+        inset 0 2px 0 rgba(255, 255, 255, 0.98),
+        inset 0 -3px 0 rgba(48, 148, 120, 0.05) !important;
+}
+
+body:has(aside) main > div > .grid:nth-child(2) > .card:nth-child(1)::before {
+    width: 230px;
+    height: 230px;
+    top: -130px;
+    right: -80px;
+    background: rgba(73, 218, 172, 0.13) !important;
+}
+
+
+/* ---------------------------------------------------------
+   2. FINANCIAL OVERVIEW
+--------------------------------------------------------- */
+body:has(aside) main > div > .grid:nth-child(2) > .card:nth-child(2) {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.94) 0%,
+        rgba(248, 242, 255, 0.87) 100%
+    ) !important;
+    border-color: rgba(174, 124, 232, 0.24) !important;
+    box-shadow:
+        0 5px 0 rgba(128, 87, 181, 0.10),
+        0 14px 27px rgba(128, 87, 181, 0.15),
+        0 28px 52px rgba(128, 87, 181, 0.09),
+        inset 0 2px 0 rgba(255, 255, 255, 0.98),
+        inset 0 -3px 0 rgba(103, 68, 151, 0.045) !important;
+}
+
+body:has(aside) main > div > .grid:nth-child(2) > .card:nth-child(2)::before {
+    width: 240px;
+    height: 240px;
+    top: -140px;
+    right: -90px;
+    background: rgba(177, 116, 240, 0.12) !important;
+}
+
+
+/* ---------------------------------------------------------
+   3. EXPENSES
+--------------------------------------------------------- */
+body:has(aside) main > div > .grid:nth-child(2) > .card:nth-child(3) {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.94) 0%,
+        rgba(255, 247, 246, 0.88) 100%
+    ) !important;
+    border-color: rgba(245, 126, 126, 0.23) !important;
+    box-shadow:
+        0 5px 0 rgba(194, 93, 93, 0.10),
+        0 14px 27px rgba(194, 93, 93, 0.14),
+        0 28px 52px rgba(194, 93, 93, 0.08),
+        inset 0 2px 0 rgba(255, 255, 255, 0.98),
+        inset 0 -3px 0 rgba(166, 76, 76, 0.045) !important;
+}
+
+body:has(aside) main > div > .grid:nth-child(2) > .card:nth-child(3)::before {
+    width: 220px;
+    height: 220px;
+    top: -120px;
+    right: -75px;
+    background: rgba(255, 118, 118, 0.11) !important;
+}
+
+
+/* ---------------------------------------------------------
+   4. LAST 30 DAYS EXPENSES
+--------------------------------------------------------- */
+body:has(aside) main > div > .grid:nth-child(2) > .card:nth-child(4) {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.94) 0%,
+        rgba(255, 249, 247, 0.86) 100%
+    ) !important;
+    border-color: rgba(244, 151, 137, 0.25) !important;
+    box-shadow:
+        0 5px 0 rgba(193, 101, 86, 0.10),
+        0 14px 27px rgba(193, 101, 86, 0.14),
+        0 28px 52px rgba(193, 101, 86, 0.08),
+        inset 0 2px 0 rgba(255, 255, 255, 0.98),
+        inset 0 -3px 0 rgba(170, 81, 70, 0.045) !important;
+}
+
+body:has(aside) main > div > .grid:nth-child(2) > .card:nth-child(4)::before {
+    width: 240px;
+    height: 240px;
+    top: -140px;
+    right: -90px;
+    background: rgba(255, 157, 133, 0.11) !important;
+}
+
+
+/* ---------------------------------------------------------
+   5. INCOME
+--------------------------------------------------------- */
+body:has(aside) main > div > .grid:nth-child(2) > .card:nth-child(5) {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.94) 0%,
+        rgba(241, 255, 249, 0.86) 100%
+    ) !important;
+    border-color: rgba(86, 211, 158, 0.25) !important;
+    box-shadow:
+        0 5px 0 rgba(48, 160, 111, 0.10),
+        0 14px 27px rgba(48, 160, 111, 0.14),
+        0 28px 52px rgba(48, 160, 111, 0.09),
+        inset 0 2px 0 rgba(255, 255, 255, 0.98),
+        inset 0 -3px 0 rgba(35, 135, 91, 0.045) !important;
+}
+
+body:has(aside) main > div > .grid:nth-child(2) > .card:nth-child(5)::before {
+    width: 230px;
+    height: 230px;
+    top: -130px;
+    right: -80px;
+    background: rgba(64, 218, 153, 0.12) !important;
+}
+
+
+/* ---------------------------------------------------------
+   6. LAST 60 DAYS INCOME
+--------------------------------------------------------- */
+body:has(aside) main > div > .grid:nth-child(2) > .card:nth-child(6) {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.94) 0%,
+        rgba(244, 250, 255, 0.88) 100%
+    ) !important;
+    border-color: rgba(102, 183, 220, 0.24) !important;
+    box-shadow:
+        0 5px 0 rgba(74, 136, 169, 0.10),
+        0 14px 27px rgba(74, 136, 169, 0.14),
+        0 28px 52px rgba(74, 136, 169, 0.09),
+        inset 0 2px 0 rgba(255, 255, 255, 0.98),
+        inset 0 -3px 0 rgba(60, 111, 142, 0.045) !important;
+}
+
+body:has(aside) main > div > .grid:nth-child(2) > .card:nth-child(6)::before {
+    width: 240px;
+    height: 240px;
+    top: -140px;
+    right: -90px;
+    background: rgba(72, 190, 221, 0.10) !important;
+}
+
+
+/* Better 3D depth for buttons inside these cards */
+body:has(aside) main > div > .grid:nth-child(2) > .card .card-btn {
+    box-shadow:
+        0 3px 0 rgba(100, 105, 120, 0.07),
+        0 6px 14px rgba(80, 85, 100, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.75) !important;
+}
+
+body:has(aside) main > div > .grid:nth-child(2) > .card .card-btn:hover {
+    transform: translateY(-1px);
+    box-shadow:
+        0 4px 0 rgba(100, 105, 120, 0.08),
+        0 9px 18px rgba(80, 85, 100, 0.11),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+}
+
+
+/* Responsive: reduce depth slightly on small screens */
+@media (max-width: 768px) {
+    body:has(aside) main > div > .grid:nth-child(2) > .card {
+        border-radius: 18px !important;
+        box-shadow:
+            0 4px 0 rgba(90, 100, 112, 0.09),
+            0 10px 22px rgba(75, 84, 98, 0.12),
+            inset 0 2px 0 rgba(255, 255, 255, 0.95) !important;
+    }
+}
+
+/* =========================================================
+   BOTTOM-RIGHT COLOR GLOW
+   ADDITION ONLY — all existing styles remain unchanged
+========================================================= */
+
+body:has(aside)::after {
+    content: "";
+    position: fixed;
+    right: -110px;
+    bottom: -110px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 85, 247, 0.18) 0%,
+            rgba(59, 210, 184, 0.12) 38%,
+            rgba(255, 177, 120, 0.07) 58%,
+            transparent 72%
+        );
+    filter: blur(28px);
+    pointer-events: none;
+    z-index: 0;
+}

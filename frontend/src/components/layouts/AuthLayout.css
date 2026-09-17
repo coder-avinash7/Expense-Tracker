@@ -1,0 +1,1725 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+
+.auth-page {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+
+  overflow: hidden;
+
+  font-family: "Poppins", sans-serif;
+
+  background: #09091b;
+}
+
+
+/* =========================================================
+   LEFT HERO
+========================================================= */
+
+.auth-hero {
+  position: relative;
+
+  width: 63%;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 45% 55%,
+      rgba(0, 218, 255, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 32% 30%,
+      rgba(126, 52, 255, 0.25),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #08091a 0%,
+      #10112e 45%,
+      #17133d 100%
+    );
+
+  border:
+    1px solid
+    rgba(255,255,255,0.08);
+
+  border-radius: 18px 0 0 18px;
+}
+
+
+/* =========================================================
+   NEON GLOWS
+========================================================= */
+
+.neon-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(80px);
+
+  pointer-events: none;
+}
+
+
+.glow-purple {
+  width: 330px;
+  height: 330px;
+
+  left: 20%;
+  top: 15%;
+
+  background: rgba(123, 48, 255, 0.28);
+}
+
+
+.glow-cyan {
+  width: 300px;
+  height: 300px;
+
+  left: 38%;
+  top: 48%;
+
+  background: rgba(0, 220, 255, 0.22);
+}
+
+
+.glow-pink {
+  width: 250px;
+  height: 250px;
+
+  right: 5%;
+  top: 12%;
+
+  background: rgba(225, 56, 255, 0.15);
+}
+
+
+/* =========================================================
+   CIRCUIT PATTERN
+========================================================= */
+
+.circuit-pattern {
+  position: absolute;
+
+  width: 530px;
+  height: 430px;
+
+  right: 4%;
+  top: 28%;
+
+  opacity: 0.35;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(0, 229, 255, 0.2) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      rgba(0, 229, 255, 0.2) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  mask-image:
+    radial-gradient(
+      ellipse,
+      black 0%,
+      transparent 70%
+    );
+}
+
+
+.circuit-pattern span {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  border:
+    2px solid
+    rgba(0, 229, 255, 0.45);
+}
+
+
+.circuit-pattern span:nth-child(1) {
+  left: 15%;
+  top: 20%;
+}
+
+
+.circuit-pattern span:nth-child(2) {
+  left: 42%;
+  top: 48%;
+}
+
+
+.circuit-pattern span:nth-child(3) {
+  left: 70%;
+  top: 25%;
+}
+
+
+.circuit-pattern span:nth-child(4) {
+  left: 31%;
+  top: 75%;
+}
+
+
+.circuit-pattern span:nth-child(5) {
+  left: 82%;
+  top: 66%;
+}
+
+
+.circuit-pattern span:nth-child(6) {
+  left: 57%;
+  top: 85%;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.hero-logo {
+  position: absolute;
+
+  z-index: 20;
+
+  top: 32px;
+  left: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+.hero-logo-icon {
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 12px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #9d48ff,
+      #6428ef
+    );
+
+  box-shadow:
+    0 0 25px
+    rgba(132, 57, 255, 0.35);
+}
+
+
+.hero-logo span {
+  color: white;
+
+  font-size: 17px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+  position: relative;
+
+  z-index: 10;
+
+  min-height: 100vh;
+
+  padding:
+    120px
+    48px
+    30px;
+}
+
+
+/* =========================================================
+   FINANCE PILL
+========================================================= */
+
+.finance-pill {
+  width: fit-content;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding:
+    6px
+    13px;
+
+  border:
+    1px solid
+    rgba(255,255,255,0.16);
+
+  border-radius: 30px;
+
+  background:
+    rgba(255,255,255,0.07);
+
+  box-shadow:
+    inset 0 0 20px
+    rgba(255,255,255,0.025);
+
+  color: #e5e6f3;
+
+  font-size: 9px;
+}
+
+
+.finance-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #29e4b0;
+
+  box-shadow:
+    0 0 10px
+    #29e4b0;
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.hero-title {
+  margin:
+    18px
+    0
+    12px;
+
+  color: white;
+
+  font-size:
+    clamp(
+      40px,
+      4.2vw,
+      68px
+    );
+
+  line-height: 1.01;
+
+  letter-spacing: -2.5px;
+
+  font-weight: 800;
+}
+
+
+.gradient-pink {
+  background:
+    linear-gradient(
+      90deg,
+      #ff4f72,
+      #ff5ca8
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+
+.gradient-purple {
+  background:
+    linear-gradient(
+      90deg,
+      #8e3fff,
+      #bc65ff,
+      #55c8ff
+    );
+
+  -webkit-background-clip: text;
+
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.hero-description {
+  margin: 0;
+
+  color:
+    rgba(255,255,255,0.68);
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   FEATURES
+========================================================= */
+
+.hero-features {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-top: 27px;
+}
+
+
+.hero-feature {
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+}
+
+
+.feature-icon {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: white;
+
+  font-size: 17px;
+
+  box-shadow:
+    0 0 18px
+    rgba(255,255,255,0.08);
+}
+
+
+.feature-green {
+  background:
+    linear-gradient(
+      135deg,
+      #2be3ad,
+      #10ad90
+    );
+
+  box-shadow:
+    0 0 22px
+    rgba(35,220,166,0.25);
+}
+
+
+.feature-pink {
+  background:
+    linear-gradient(
+      135deg,
+      #ff5e9e,
+      #d9368c
+    );
+
+  box-shadow:
+    0 0 22px
+    rgba(255,69,153,0.23);
+}
+
+
+.feature-purple {
+  background:
+    linear-gradient(
+      135deg,
+      #a047ff,
+      #6531ef
+    );
+
+  box-shadow:
+    0 0 22px
+    rgba(130,60,255,0.25);
+}
+
+
+.feature-orange {
+  background:
+    linear-gradient(
+      135deg,
+      #ffb529,
+      #ff7c18
+    );
+
+  box-shadow:
+    0 0 22px
+    rgba(255,147,31,0.25);
+}
+
+
+.feature-text h3 {
+  margin: 0;
+
+  color: white;
+
+  font-size: 11px;
+
+  font-weight: 700;
+}
+
+
+.feature-text p {
+  margin: 2px 0 0;
+
+  color:
+    rgba(255,255,255,0.47);
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   PHONE WRAPPER
+========================================================= */
+
+.phone-wrapper {
+  position: absolute;
+
+  z-index: 18;
+
+  width: 320px;
+  height: 600px;
+
+  right: -12px;
+  bottom: -35px;
+
+  transform:
+    rotate(11deg);
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+.phone {
+  position: absolute;
+
+  width: 270px;
+  height: 550px;
+
+  left: 25px;
+  top: 5px;
+
+  padding: 7px;
+
+  border:
+    4px solid
+    #38394c;
+
+  border-radius: 42px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #090b18,
+      #1a1b31
+    );
+
+  box-shadow:
+    -15px 25px 50px
+    rgba(0,0,0,0.55),
+    0 0 25px
+    rgba(145,65,255,0.18);
+}
+
+
+/* =========================================================
+   PHONE SIDE BUTTON
+========================================================= */
+
+.phone-side-button {
+  position: absolute;
+
+  right: -7px;
+
+  width: 4px;
+
+  border-radius: 5px;
+
+  background: #5c5c70;
+}
+
+
+.side-one {
+  top: 115px;
+
+  height: 55px;
+}
+
+
+.side-two {
+  top: 185px;
+
+  height: 30px;
+}
+
+
+/* =========================================================
+   PHONE SCREEN
+========================================================= */
+
+.phone-screen {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: 35px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #0e1022,
+      #10132a
+    );
+}
+
+
+/* =========================================================
+   DYNAMIC ISLAND
+========================================================= */
+
+.phone-island {
+  position: absolute;
+
+  top: 8px;
+  left: 50%;
+
+  width: 75px;
+  height: 20px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 15px;
+
+  background: #05060d;
+}
+
+
+.phone-island span {
+  position: absolute;
+
+  right: 10px;
+  top: 6px;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #1d2032;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.phone-status {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding:
+    12px
+    14px
+    0;
+
+  color: #dfe1ed;
+
+  font-size: 7px;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   GREETING
+========================================================= */
+
+.phone-greeting {
+  margin:
+    22px
+    12px
+    0;
+}
+
+
+.phone-greeting span {
+  display: block;
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+.phone-greeting small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #727993;
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   BALANCE
+========================================================= */
+
+.balance-card {
+  margin:
+    13px
+    12px
+    0;
+
+  padding: 13px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #171a35,
+      #20213f
+    );
+
+  border:
+    1px solid
+    rgba(255,255,255,0.04);
+
+  box-shadow:
+    0 10px 25px
+    rgba(0,0,0,0.2);
+}
+
+
+.balance-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #7d839e;
+
+  font-size: 6px;
+}
+
+
+.balance-top span:last-child {
+  padding: 5px 6px;
+
+  margin-top: -4px;
+
+  border-radius: 6px;
+
+  background: #252743;
+
+  color: #a9acc0;
+}
+
+
+.balance-card strong {
+  display: block;
+
+  margin-top: 9px;
+
+  color: white;
+
+  font-size: 19px;
+}
+
+
+.balance-card small {
+  color: #2ee1a9;
+
+  font-size: 7px;
+}
+
+
+/* =========================================================
+   PHONE CHART
+========================================================= */
+
+.phone-chart {
+  margin:
+    10px
+    12px
+    0;
+
+  padding:
+    11px
+    9px
+    8px;
+
+  border-radius: 13px;
+
+  background:
+    rgba(18,20,43,0.95);
+
+  border:
+    1px solid
+    rgba(166,76,255,0.13);
+}
+
+
+.chart-title {
+  color: #b8bbca;
+
+  font-size: 7px;
+}
+
+
+.chart-area {
+  position: relative;
+
+  height: 112px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-around;
+
+  margin-top: 7px;
+}
+
+
+.chart-area::before,
+.chart-area::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  height: 1px;
+
+  background:
+    rgba(255,255,255,0.04);
+}
+
+
+.chart-area::before {
+  top: 30%;
+}
+
+
+.chart-area::after {
+  top: 65%;
+}
+
+
+.chart-bar {
+  position: relative;
+
+  z-index: 2;
+
+  width: 19px;
+
+  border-radius:
+    6px
+    6px
+    2px
+    2px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #b34dff,
+      #ef45b2
+    );
+
+  box-shadow:
+    0 0 13px
+    rgba(184,68,255,0.45);
+}
+
+
+.chart-1 {
+  height: 35%;
+}
+
+
+.chart-2 {
+  height: 58%;
+}
+
+
+.chart-3 {
+  height: 76%;
+}
+
+
+.chart-4 {
+  height: 51%;
+}
+
+
+.chart-5 {
+  height: 67%;
+}
+
+
+.chart-6 {
+  height: 86%;
+}
+
+
+.chart-months {
+  display: flex;
+
+  justify-content: space-around;
+
+  color: #696e88;
+
+  font-size: 5px;
+}
+
+
+/* =========================================================
+   MONEY ROW
+========================================================= */
+
+.money-row {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 6px;
+
+  margin:
+    8px
+    12px
+    0;
+}
+
+
+.money-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 8px;
+
+  border-radius: 10px;
+}
+
+
+.money-income {
+  border:
+    1px solid
+    rgba(34,223,165,0.3);
+
+  background:
+    rgba(20,203,151,0.08);
+}
+
+
+.money-expense {
+  border:
+    1px solid
+    rgba(246,62,119,0.3);
+
+  background:
+    rgba(246,62,119,0.08);
+}
+
+
+.money-icon {
+  width: 23px;
+  height: 23px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: white;
+
+  background: #20dba5;
+}
+
+
+.money-expense .money-icon {
+  background: #f84e78;
+}
+
+
+.money-card span {
+  display: block;
+
+  color: #7d839d;
+
+  font-size: 5px;
+}
+
+
+.money-card strong {
+  display: block;
+
+  margin-top: 2px;
+
+  color: white;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   SAVINGS
+========================================================= */
+
+.savings-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin:
+    8px
+    12px
+    0;
+
+  padding: 9px;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #181b38,
+      #202245
+    );
+}
+
+
+.saving-ring {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    conic-gradient(
+      #20dfa5 68%,
+      #2b2d48 0
+    );
+
+  position: relative;
+}
+
+
+.saving-ring::before {
+  content: "";
+
+  position: absolute;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  background: #191c39;
+}
+
+
+.saving-ring span {
+  position: relative;
+
+  z-index: 2;
+
+  color: white;
+
+  font-size: 8px;
+
+  font-weight: 700;
+}
+
+
+.saving-content {
+  flex: 1;
+}
+
+
+.saving-content strong {
+  display: block;
+
+  color: white;
+
+  font-size: 8px;
+}
+
+
+.saving-content > span {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #777d97;
+
+  font-size: 6px;
+}
+
+
+.saving-progress {
+  height: 4px;
+
+  margin-top: 6px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #30324d;
+}
+
+
+.saving-progress div {
+  width: 68%;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #19d99e,
+      #42efbb
+    );
+
+  box-shadow:
+    0 0 8px
+    rgba(32,223,165,0.6);
+}
+
+
+/* =========================================================
+   PHONE NAV
+========================================================= */
+
+.phone-nav {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 10px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-around;
+
+  color: #646982;
+
+  font-size: 14px;
+}
+
+
+.phone-add {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #a044ff,
+      #7130ed
+    );
+
+  box-shadow:
+    0 0 14px
+    rgba(143,55,255,0.5);
+}
+
+
+/* =========================================================
+   REFLECTION
+========================================================= */
+
+.phone-reflection {
+  position: absolute;
+
+  width: 180px;
+  height: 400px;
+
+  right: 15px;
+  bottom: 25px;
+
+  transform:
+    rotate(11deg);
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(174,70,255,0.08),
+      transparent
+    );
+
+  filter: blur(15px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   FLOATING ACTIVITY
+========================================================= */
+
+.floating-activity {
+  position: absolute;
+
+  right: 9%;
+
+  top: 52%;
+
+  z-index: 30;
+
+  color: #bc8aff;
+
+  filter:
+    drop-shadow(
+      0 0 10px
+      rgba(177,99,255,0.7)
+    );
+}
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
+
+.hero-quote {
+  position: absolute;
+
+  z-index: 30;
+
+  left: 48px;
+
+  bottom: 28px;
+
+  color: #d8c8ff;
+
+  font-size: 11px;
+
+  font-style: italic;
+}
+
+
+.hero-quote span {
+  display: block;
+}
+
+
+.hero-quote span:nth-child(2) {
+  margin-left: 20px;
+}
+
+
+.hero-quote div {
+  width: 100px;
+
+  height: 2px;
+
+  margin:
+    5px
+    0
+    0
+    25px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #a45bff,
+      transparent
+    );
+
+  transform: rotate(-4deg);
+}
+
+
+/* =========================================================
+   RIGHT SIDE
+========================================================= */
+
+.auth-right {
+  position: relative;
+
+  width: 37%;
+
+  min-height: 100vh;
+
+  overflow-y: auto;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(155,74,255,0.17),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(47,224,255,0.10),
+      transparent 30%
+    ),
+    #15152b;
+
+  border:
+    1px solid
+    rgba(255,255,255,0.07);
+
+  border-radius:
+    0
+    18px
+    18px
+    0;
+}
+
+
+/* =========================================================
+   TOP SIGN UP
+========================================================= */
+
+.auth-top {
+  position: relative;
+
+  z-index: 30;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 7px;
+
+  padding:
+    31px
+    32px
+    10px;
+
+  color: #777c96;
+
+  font-size: 10px;
+}
+
+
+.auth-top a {
+  color: white;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  border-bottom:
+    1px solid
+    #a76aff;
+
+  padding-bottom: 2px;
+}
+
+
+.auth-top a:hover {
+  color: #c08bff;
+}
+
+
+/* =========================================================
+   AUTH CONTENT
+========================================================= */
+
+.auth-content {
+  position: relative;
+
+  z-index: 10;
+
+  min-height:
+    calc(100vh - 65px);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    10px
+    35px
+    30px;
+}
+
+
+/* =========================================================
+   AUTH CARD
+========================================================= */
+
+.auth-card {
+  width: 100%;
+
+  max-width: 420px;
+
+  padding:
+    33px
+    29px;
+
+  border-radius: 19px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(64,64,91,0.78),
+      rgba(48,47,73,0.72)
+    );
+
+  border:
+    1px solid
+    rgba(255,255,255,0.25);
+
+  box-shadow:
+    0 25px 60px
+    rgba(0,0,0,0.32),
+    inset 0 1px 0
+    rgba(255,255,255,0.10);
+
+  backdrop-filter: blur(18px);
+}
+
+
+/* =========================================================
+   STAR
+========================================================= */
+
+.auth-star {
+  position: absolute;
+
+  right: 25px;
+
+  bottom: 90px;
+
+  color: rgba(255,255,255,0.4);
+
+  font-size: 44px;
+
+  filter:
+    drop-shadow(
+      0 0 10px
+      rgba(255,255,255,0.2)
+    );
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.auth-dots {
+  position: absolute;
+
+  right: 24px;
+
+  bottom: 18px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 4px);
+
+  gap: 7px;
+}
+
+
+.auth-dots span {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #75648c;
+
+  box-shadow:
+    0 0 5px
+    rgba(166,105,255,0.35);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1200px) {
+
+  .auth-hero {
+    width: 58%;
+  }
+
+
+  .auth-right {
+    width: 42%;
+  }
+
+
+  .hero-content {
+    padding-left: 35px;
+  }
+
+
+  .hero-title {
+    font-size: 42px;
+  }
+
+
+  .phone-wrapper {
+    right: -90px;
+
+    transform:
+      scale(0.88)
+      rotate(11deg);
+  }
+
+
+  .hero-features {
+    gap: 9px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .auth-hero {
+    width: 55%;
+  }
+
+
+  .auth-right {
+    width: 45%;
+  }
+
+
+  .hero-logo {
+    left: 25px;
+  }
+
+
+  .hero-content {
+    padding:
+      115px
+      25px
+      20px;
+  }
+
+
+  .hero-title {
+    font-size: 35px;
+  }
+
+
+  .hero-description {
+    font-size: 9px;
+  }
+
+
+  .phone-wrapper {
+    right: -135px;
+
+    transform:
+      scale(0.72)
+      rotate(11deg);
+  }
+
+
+  .growth-card {
+    display: none;
+  }
+
+
+  .auth-content {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+
+  .auth-card {
+    padding:
+      28px
+      23px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .auth-page {
+    display: block;
+
+    min-height: 100vh;
+
+    overflow-y: auto;
+  }
+
+
+  .auth-hero {
+    display: none;
+  }
+
+
+  .auth-right {
+    width: 100%;
+
+    min-height: 100vh;
+
+    border-radius: 0;
+  }
+
+
+  .auth-top {
+    padding:
+      22px
+      20px
+      5px;
+  }
+
+
+  .auth-content {
+    min-height:
+      calc(100vh - 55px);
+
+    padding:
+      15px;
+  }
+
+
+  .auth-card {
+    max-width: 500px;
+
+    padding:
+      32px
+      25px;
+
+    border-radius: 20px;
+  }
+
+
+  .auth-star,
+  .auth-dots {
+    display: none;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+  .auth-card {
+    padding:
+      28px
+      18px;
+  }
+
+}

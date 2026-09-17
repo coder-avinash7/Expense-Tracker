@@ -1,0 +1,244 @@
+/* =========================================================
+   SIGN UP PAGE
+========================================================= */
+
+.signup-page {
+  width: 100%;
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.signup-heading {
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+
+
+.signup-heading h1 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 25px;
+
+  font-weight: 800;
+
+  letter-spacing: -0.6px;
+}
+
+
+.signup-heading p {
+  margin-top: 7px;
+
+  color: #aeb3c9;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   PROFILE PHOTO
+========================================================= */
+
+.signup-profile {
+  display: flex;
+
+  justify-content: center;
+
+  margin:
+    15px
+    0
+    25px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.signup-form {
+  width: 100%;
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.signup-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 15px;
+}
+
+
+/* =========================================================
+   PASSWORD
+========================================================= */
+
+.signup-password {
+  grid-column:
+    1 / -1;
+}
+
+
+/* =========================================================
+   SIGN UP BUTTON
+========================================================= */
+
+.signup-submit {
+  width: 100%;
+
+  height: 44px;
+
+  margin-top: 5px;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #b53de7,
+      #7437f4
+    );
+
+  color: #ffffff;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px
+    rgba(126,45,245,0.28);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.signup-submit:hover {
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 14px 30px
+    rgba(126,45,245,0.40);
+}
+
+
+.signup-submit:active {
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.signup-error {
+  margin:
+    0
+    0
+    12px;
+
+  padding:
+    9px
+    11px;
+
+  border:
+    1px solid
+    rgba(255,75,100,0.35);
+
+  border-radius: 8px;
+
+  background:
+    rgba(255,60,90,0.08);
+
+  color: #ff8298;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   BOTTOM TEXT
+========================================================= */
+
+.signup-bottom {
+  margin:
+    18px
+    0
+    0;
+
+  text-align: center;
+
+  color: #aeb3c9;
+
+  font-family: "Poppins", sans-serif;
+
+  font-size: 9px;
+}
+
+
+.signup-bottom a {
+  margin-left: 5px;
+
+  color: #bd82ff;
+
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+
+.signup-bottom a:hover {
+  color: #ffffff;
+
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .signup-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .signup-password {
+    grid-column: auto;
+  }
+
+
+  .signup-heading h1 {
+    font-size: 23px;
+  }
+
+}

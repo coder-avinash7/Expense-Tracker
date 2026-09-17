@@ -1,0 +1,245 @@
+/* =========================================
+   ADD INCOME FORM
+========================================= */
+
+.income-form {
+    width: 100%;
+    padding: 5px 0;
+}
+
+
+/* =========================================
+   EMOJI PICKER
+========================================= */
+
+.income-form > button:first-child {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 24px;
+
+    border: 1px solid #e4dcff !important;
+    border-radius: 14px !important;
+
+    background: #f7f3ff !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.income-form > button:first-child svg {
+    color: #8757ed !important;
+}
+
+
+/* =========================================
+   INPUT AREA
+========================================= */
+
+.income-form input {
+    width: 100% !important;
+    height: 52px !important;
+
+    box-sizing: border-box;
+
+    padding: 0 16px !important;
+
+    border: 1px solid transparent !important;
+    border-radius: 13px !important;
+
+    outline: none !important;
+
+    background: #111936 !important;
+
+    color: #ffffff !important;
+
+    font-size: 14px !important;
+    font-weight: 500;
+
+    transition: all 0.2s ease;
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.income-form label {
+    display: block;
+
+    margin-bottom: 8px !important;
+
+    color: #8793aa !important;
+
+    font-size: 12px !important;
+    font-weight: 600 !important;
+}
+
+
+/* =========================================
+   PLACEHOLDER
+========================================= */
+
+.income-form input::placeholder {
+    color: #68738e !important;
+    opacity: 1;
+}
+
+
+/* =========================================
+   FOCUS
+========================================= */
+
+.income-form input:focus {
+    border-color: #8757ed !important;
+
+    box-shadow:
+        0 0 0 3px rgba(135, 87, 237, 0.12) !important;
+}
+
+
+/* =========================================
+   NUMBER INPUT
+========================================= */
+
+.income-form input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.income-form input[type="number"]::-webkit-inner-spin-button,
+.income-form input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* =========================================
+   DATE INPUT
+========================================= */
+
+.income-form input[type="date"] {
+    color: #ffffff !important;
+
+    color-scheme: dark;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   DATE TEXT
+========================================= */
+
+.income-form input[type="date"]::-webkit-datetime-edit {
+    color: #ffffff !important;
+}
+
+.income-form input[type="date"]::-webkit-datetime-edit-month-field,
+.income-form input[type="date"]::-webkit-datetime-edit-day-field,
+.income-form input[type="date"]::-webkit-datetime-edit-year-field {
+    color: #ffffff !important;
+}
+
+.income-form input[type="date"]::-webkit-datetime-edit-text {
+    color: #68738e !important;
+}
+
+
+/* =========================================
+   DATE FIELD FOCUS
+========================================= */
+
+.income-form input[type="date"]:focus {
+    border-color: #8757ed !important;
+
+    box-shadow:
+        0 0 0 3px rgba(135, 87, 237, 0.12) !important;
+}
+
+
+/* =========================================
+   SPACING BETWEEN INPUTS
+========================================= */
+
+.income-form > div {
+    margin-bottom: 18px;
+}
+
+
+/* =========================================
+   BUTTON CONTAINER
+========================================= */
+
+.income-form .flex {
+    margin-top: 24px;
+}
+
+
+/* =========================================
+   ADD INCOME BUTTON
+========================================= */
+
+.income-form .add-btn-fill {
+    min-width: 130px;
+    height: 50px;
+
+    padding: 0 22px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #a855f7,
+        #7047e8
+    ) !important;
+
+    color: #ffffff !important;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(112, 71, 232, 0.25);
+
+    transition: all 0.2s ease;
+}
+
+
+/* =========================================
+   BUTTON HOVER
+========================================= */
+
+.income-form .add-btn-fill:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 11px 25px rgba(112, 71, 232, 0.35);
+}
+
+
+/* =========================================
+   BUTTON ACTIVE
+========================================= */
+
+.income-form .add-btn-fill:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .income-form input {
+        height: 50px !important;
+    }
+
+    .income-form .add-btn-fill {
+        width: 100%;
+    }
+}
