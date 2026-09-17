@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
     BarChart,
     Bar,
@@ -16,6 +15,7 @@ const CustomBarChart = ({ data = [] }) => {
     // -----------------------------------------
     // BAR COLORS
     // -----------------------------------------
+
     const getBarColor = (index) => {
         const colors = [
             "#8B5CF6",
@@ -33,8 +33,11 @@ const CustomBarChart = ({ data = [] }) => {
     // -----------------------------------------
     // CUSTOM TOOLTIP
     // -----------------------------------------
+
     const CustomTooltip = ({ active, payload }) => {
+
         if (active && payload && payload.length) {
+
             const item = payload[0];
 
             return (
@@ -47,17 +50,19 @@ const CustomBarChart = ({ data = [] }) => {
                     </p>
 
                     <p className="text-xl font-semibold text-white">
-                        ${Number(
+                        ₹{Number(
                             item?.value || 0
-                        ).toLocaleString()}
+                        ).toLocaleString("en-IN")}
                     </p>
 
                     <div className="flex items-center gap-2 mt-2">
+
                         <span className="w-2 h-2 rounded-full bg-red-400" />
 
                         <span className="text-[11px] text-red-400">
                             Expense
                         </span>
+
                     </div>
 
                 </div>
@@ -71,14 +76,18 @@ const CustomBarChart = ({ data = [] }) => {
     // -----------------------------------------
     // EMPTY STATE
     // -----------------------------------------
+
     if (!data || data.length === 0) {
+
         return (
             <div className="w-full h-[300px] mt-6 flex flex-col items-center justify-center rounded-xl bg-white/[0.02] border border-white/[0.06]">
 
                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-red-500/10 border border-red-400/10">
+
                     <span className="text-2xl text-red-400">
                         ₹
                     </span>
+
                 </div>
 
                 <p className="mt-4 text-sm font-medium text-gray-400">
@@ -97,11 +106,13 @@ const CustomBarChart = ({ data = [] }) => {
     // -----------------------------------------
     // CHART
     // -----------------------------------------
+
     return (
         <>
             {/* =====================================
                 3D BAR CSS
             ====================================== */}
+
             <style>
                 {`
                     .expense-bar-3d {
@@ -123,6 +134,7 @@ const CustomBarChart = ({ data = [] }) => {
                 `}
             </style>
 
+
             <div className="w-full h-[300px] mt-6 bg-transparent expense-bar-3d">
 
                 <ResponsiveContainer
@@ -142,6 +154,7 @@ const CustomBarChart = ({ data = [] }) => {
                     >
 
                         {/* GRID */}
+
                         <CartesianGrid
                             vertical={false}
                             stroke="rgba(148,163,184,0.08)"
@@ -150,6 +163,7 @@ const CustomBarChart = ({ data = [] }) => {
 
 
                         {/* X AXIS */}
+
                         <XAxis
                             dataKey="category"
                             axisLine={false}
@@ -164,6 +178,7 @@ const CustomBarChart = ({ data = [] }) => {
 
 
                         {/* Y AXIS */}
+
                         <YAxis
                             axisLine={false}
                             tickLine={false}
@@ -193,6 +208,7 @@ const CustomBarChart = ({ data = [] }) => {
 
 
                         {/* TOOLTIP */}
+
                         <Tooltip
                             content={<CustomTooltip />}
                             cursor={{
@@ -202,6 +218,7 @@ const CustomBarChart = ({ data = [] }) => {
 
 
                         {/* BAR */}
+
                         <Bar
                             dataKey="amount"
                             radius={[8, 8, 3, 3]}
