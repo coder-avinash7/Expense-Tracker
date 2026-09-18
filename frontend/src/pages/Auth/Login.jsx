@@ -435,7 +435,8 @@ const Login = () => {
                                 theme="outline"
                                 size="large"
                                 shape="rectangular"
-                                width="400"
+                                text="signin"
+                                width="200"
                             />
 
                         </div>
