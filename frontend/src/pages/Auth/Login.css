@@ -3,7 +3,7 @@
 ========================================================= */
 
 .login-page {
-  width: 100%;
+    width: 100%;
 }
 
 
@@ -12,38 +12,29 @@
 ========================================================= */
 
 .login-icon-container {
-  display: flex;
-
-  justify-content: center;
-
-  margin-bottom: 17px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 17px;
 }
 
 
 .login-icon {
-  width: 51px;
-  height: 51px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border-radius: 15px;
-
-  color: white;
-
-  background:
-    linear-gradient(
-      135deg,
-      #a33cff,
-      #6d30f1
-    );
-
-  box-shadow:
-    0 0 25px
-    rgba(150,62,255,0.35);
+    width: 51px;
+    height: 51px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    color: white;
+    background:
+        linear-gradient(
+            135deg,
+            #a33cff,
+            #6d30f1
+        );
+    box-shadow:
+        0 0 25px
+        rgba(150, 62, 255, 0.35);
 }
 
 
@@ -52,34 +43,27 @@
 ========================================================= */
 
 .login-heading {
-  text-align: center;
-
-  margin-bottom: 26px;
+    text-align: center;
+    margin-bottom: 26px;
 }
 
 
 .login-heading h1 {
-  margin: 0;
-
-  color: #f8f7ff;
-
-  font-size: 25px;
-
-  font-weight: 800;
-
-  letter-spacing: -0.7px;
+    margin: 0;
+    color: #f8f7ff;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
 }
 
 
 .login-heading p {
-  margin:
-    7px
-    0
-    0;
-
-  color: #9297ad;
-
-  font-size: 10px;
+    margin:
+        7px
+        0
+        0;
+    color: #9297ad;
+    font-size: 10px;
 }
 
 
@@ -88,108 +72,79 @@
 ========================================================= */
 
 .login-options {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 10px;
-
-  margin:
-    -2px
-    0
-    19px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin:
+        -2px
+        0
+        19px;
 }
 
 
 .remember-me {
-  display: flex;
-
-  align-items: center;
-
-  gap: 7px;
-
-  color: #9297ad;
-
-  font-size: 10px;
-
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #9297ad;
+    font-size: 10px;
+    cursor: pointer;
 }
 
 
 .remember-me input {
-  appearance: none;
-
-  width: 15px;
-  height: 15px;
-
-  margin: 0;
-
-  border:
-    1px solid
-    #666a7d;
-
-  border-radius: 4px;
-
-  background:
-    rgba(255,255,255,0.02);
-
-  cursor: pointer;
-
-  position: relative;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    border:
+        1px solid
+        #666a7d;
+    border-radius: 4px;
+    background:
+        rgba(255, 255, 255, 0.02);
+    cursor: pointer;
+    position: relative;
 }
 
 
 .remember-me input:checked {
-  border-color: #9a43ff;
-
-  background:
-    linear-gradient(
-      135deg,
-      #a03cff,
-      #7030ed
-    );
+    border-color: #9a43ff;
+    background:
+        linear-gradient(
+            135deg,
+            #a03cff,
+            #7030ed
+        );
 }
 
 
 .remember-me input:checked::after {
-  content: "✓";
-
-  position: absolute;
-
-  left: 2px;
-  top: -2px;
-
-  color: white;
-
-  font-size: 12px;
-
-  font-weight: 700;
+    content: "✓";
+    position: absolute;
+    left: 2px;
+    top: -2px;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
 }
 
 
 .forgot-password {
-  padding: 0;
-
-  border: none;
-
-  background: transparent;
-
-  color: #b48aff;
-
-  font-family: inherit;
-
-  font-size: 10px;
-
-  cursor: pointer;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #b48aff;
+    font-family: inherit;
+    font-size: 10px;
+    cursor: pointer;
 }
 
 
 .forgot-password:hover {
-  color: #d0b4ff;
-
-  text-decoration: underline;
+    color: #d0b4ff;
+    text-decoration: underline;
 }
 
 
@@ -198,24 +153,18 @@
 ========================================================= */
 
 .login-error {
-  padding:
-    9px
-    11px;
-
-  margin-bottom: 12px;
-
-  border:
-    1px solid
-    rgba(255,70,100,0.3);
-
-  border-radius: 8px;
-
-  background:
-    rgba(255,60,90,0.08);
-
-  color: #ff8298;
-
-  font-size: 9px;
+    padding:
+        9px
+        11px;
+    margin-bottom: 12px;
+    border:
+        1px solid
+        rgba(255, 70, 100, 0.3);
+    border-radius: 8px;
+    background:
+        rgba(255, 60, 90, 0.08);
+    color: #ff8298;
+    font-size: 9px;
 }
 
 
@@ -224,63 +173,47 @@
 ========================================================= */
 
 .login-submit {
-  width: 100%;
-
-  height: 44px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 10px;
-
-  border: none;
-
-  border-radius: 9px;
-
-  color: white;
-
-  background:
-    linear-gradient(
-      90deg,
-      #bd3ce7,
-      #7536f4
-    );
-
-  font-family: inherit;
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  cursor: pointer;
-
-  box-shadow:
-    0 10px 25px
-    rgba(126,45,245,0.27);
-
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    width: 100%;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: none;
+    border-radius: 9px;
+    color: white;
+    background:
+        linear-gradient(
+            90deg,
+            #bd3ce7,
+            #7536f4
+        );
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow:
+        0 10px 25px
+        rgba(126, 45, 245, 0.27);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 
 .login-submit:hover {
-  transform:
-    translateY(-1px);
-
-  box-shadow:
-    0 14px 30px
-    rgba(126,45,245,0.38);
+    transform:
+        translateY(-1px);
+    box-shadow:
+        0 14px 30px
+        rgba(126, 45, 245, 0.38);
 }
 
 
 .login-submit:active {
-  transform:
-    translateY(0)
-    scale(0.99);
+    transform:
+        translateY(0)
+        scale(0.99);
 }
 
 
@@ -289,34 +222,27 @@
 ========================================================= */
 
 .login-or {
-  display: flex;
-
-  align-items: center;
-
-  gap: 12px;
-
-  margin:
-    19px
-    0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin:
+        19px
+        0;
 }
 
 
 .login-or span {
-  flex: 1;
-
-  height: 1px;
-
-  background:
-    rgba(255,255,255,0.12);
+    flex: 1;
+    height: 1px;
+    background:
+        rgba(255, 255, 255, 0.12);
 }
 
 
 .login-or p {
-  margin: 0;
-
-  color: #7d8299;
-
-  font-size: 9px;
+    margin: 0;
+    color: #7d8299;
+    font-size: 9px;
 }
 
 
@@ -325,60 +251,63 @@
 ========================================================= */
 
 .social-login {
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
-
-  gap: 7px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 7px;
+    width: 100%;
 }
 
 
-.social-login button {
-  height: 39px;
+/* =========================================================
+   GOOGLE
+========================================================= */
 
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 5px;
-
-  padding:
-    0
-    5px;
-
-  border:
-    1px solid
-    rgba(255,255,255,0.16);
-
-  border-radius: 8px;
-
-  background:
-    rgba(255,255,255,0.08);
-
-  color: #ececf4;
-
-  font-family: inherit;
-
-  font-size: 9px;
-
-  cursor: pointer;
-
-  transition: 0.2s ease;
+.social-login > div:first-child {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 
-.social-login button:hover {
-  background:
-    rgba(255,255,255,0.13);
+/* =========================================================
+   GITHUB + MICROSOFT
+========================================================= */
 
-  border-color:
-    rgba(255,255,255,0.25);
+.social-login > button {
+    width: 100%;
+    height: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding:
+        0
+        5px;
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.16);
+    border-radius: 8px;
+    background:
+        rgba(255, 255, 255, 0.08);
+    color: #ececf4;
+    font-family: inherit;
+    font-size: 9px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
 
-  transform:
-    translateY(-1px);
+
+.social-login > button:hover {
+    background:
+        rgba(255, 255, 255, 0.13);
+    border-color:
+        rgba(255, 255, 255, 0.25);
+    transform:
+        translateY(-1px);
 }
 
 
@@ -387,35 +316,32 @@
 ========================================================= */
 
 .microsoft-logo {
-  width: 14px;
-  height: 14px;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, 1fr);
-
-  gap: 2px;
+    width: 14px;
+    height: 14px;
+    display: grid;
+    grid-template-columns:
+        repeat(2, 1fr);
+    gap: 2px;
 }
 
 
 .microsoft-logo i:nth-child(1) {
-  background: #f25022;
+    background: #f25022;
 }
 
 
 .microsoft-logo i:nth-child(2) {
-  background: #7fba00;
+    background: #7fba00;
 }
 
 
 .microsoft-logo i:nth-child(3) {
-  background: #00a4ef;
+    background: #00a4ef;
 }
 
 
 .microsoft-logo i:nth-child(4) {
-  background: #ffb900;
+    background: #ffb900;
 }
 
 
@@ -424,34 +350,27 @@
 ========================================================= */
 
 .login-bottom {
-  margin:
-    18px
-    0
-    0;
-
-  text-align: center;
-
-  color: #858aa1;
-
-  font-size: 9px;
+    margin:
+        18px
+        0
+        0;
+    text-align: center;
+    color: #858aa1;
+    font-size: 9px;
 }
 
 
 .login-bottom a {
-  margin-left: 4px;
-
-  color: #c08cff;
-
-  font-weight: 700;
-
-  text-decoration: none;
+    margin-left: 4px;
+    color: #c08cff;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 
 .login-bottom a:hover {
-  color: white;
-
-  text-decoration: underline;
+    color: white;
+    text-decoration: underline;
 }
 
 
@@ -461,23 +380,22 @@
 
 @media (max-width: 480px) {
 
-  .login-heading h1 {
-    font-size: 24px;
-  }
+    .login-heading h1 {
+        font-size: 24px;
+    }
 
 
-  .login-heading p {
-    font-size: 9px;
-  }
+    .login-heading p {
+        font-size: 9px;
+    }
 
 
-  .social-login {
-    gap: 5px;
-  }
+    .social-login {
+        gap: 5px;
+    }
 
 
-  .social-login button {
-    font-size: 8px;
-  }
-
+    .social-login > button {
+        font-size: 8px;
+    }
 }

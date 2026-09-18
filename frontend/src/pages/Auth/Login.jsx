@@ -417,7 +417,7 @@ const Login = () => {
                             GOOGLE
                         ================================================== */}
 
-                        <div
+                        {/* <div
                             style={{
                                 width: "100%",
                                 height: "46px",
@@ -439,6 +439,33 @@ const Login = () => {
                                 width="200"
                             />
 
+                        </div> */}
+
+                        {/* =================================================
+    GOOGLE
+================================================== */}
+
+                        <div
+                            style={{
+                                width: "100%",
+                                height: "46px",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                gridColumn: "1 / -1",
+                                overflow: "hidden",
+                            }}
+                        >
+                            <GoogleLogin
+                                onSuccess={handleGoogleSuccess}
+                                onError={handleGoogleError}
+                                useOneTap={false}
+                                theme="outline"
+                                size="large"
+                                shape="rectangular"
+                                text="signin"
+                                width="200"
+                            />
                         </div>
 
 
