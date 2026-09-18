@@ -23,7 +23,7 @@ const Input = ({ value, onChange, placeholder, label, type }) => {
                 `}
             </style>
 
-            <label className='text-[13px] text-white'>{label}</label>
+            <label className="text-[15px] text-black">{label}</label>
 
             <div className='input-box'>
 
