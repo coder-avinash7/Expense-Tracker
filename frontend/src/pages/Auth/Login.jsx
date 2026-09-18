@@ -428,6 +428,10 @@ const Login = () => {
                             <button
                                 type="button"
                                 className="google-custom-button"
+                                style={{
+                                    width: "100%",
+                                    height: "46px",
+                                }}
                             >
 
                                 <FcGoogle
@@ -472,6 +476,10 @@ const Login = () => {
 
                         <button
                             type="button"
+                            style={{
+                                width: "100%",
+                                height: "46px",
+                            }}
                             onClick={() =>
                                 setError(
                                     "GitHub login is not configured yet."
@@ -496,6 +504,10 @@ const Login = () => {
 
                         <button
                             type="button"
+                            style={{
+                                width: "100%",
+                                height: "46px",
+                            }}
                             onClick={() =>
                                 setError(
                                     "Microsoft login is not configured yet."
