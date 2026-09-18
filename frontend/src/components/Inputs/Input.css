@@ -175,7 +175,7 @@
     border: none;
     outline: none;
 
-    background: transparent;
+    background: transparent !important;
 
     color: #f8fafc !important;
 
@@ -208,17 +208,17 @@
 
 
 /* =========================================================
-   AUTOFILL
+   AUTOFILL FIX (Prevents browser light/white background)
 ========================================================= */
 
 .custom-input:-webkit-autofill,
 .custom-input:-webkit-autofill:hover,
 .custom-input:-webkit-autofill:focus {
 
-    -webkit-text-fill-color: #f8fafc;
+    -webkit-text-fill-color: #f8fafc !important;
 
     -webkit-box-shadow:
-        0 0 0 1000px #0e1632 inset;
+        0 0 0 1000px #0e1632 inset !important;
 
     transition:
         background-color

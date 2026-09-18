@@ -1904,3 +1904,24 @@ body:has(aside)::after {
     pointer-events: none;
     z-index: 0;
 }
+
+/* =========================================================
+   COMPLETE AUTOFILL FIX & INPUT ALIGNMENT
+========================================================= */
+
+/* Forcefully removes the browser's light/white autofill background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+.input-box input:-webkit-autofill,
+.custom-input:-webkit-autofill {
+    -webkit-text-fill-color: #f8fafc !important;
+    -webkit-box-shadow: 0 0 0px 1000px #0b1128 inset !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* Ensure password and text inputs share the exact left alignment and padding */
+.input-box input,
+.custom-input {
+    padding-left: 14px !important;
+}
