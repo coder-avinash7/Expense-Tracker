@@ -419,53 +419,24 @@ const Login = () => {
 
                         <div
                             style={{
-                                position: "relative",
                                 width: "100%",
                                 height: "46px",
+                                display: "flex",
+                                justifyContent: "center",
+                                alignItems: "center",
+                                overflow: "hidden",
                             }}
                         >
 
-                            <button
-                                type="button"
-                                className="google-custom-button"
-                                style={{
-                                    width: "100%",
-                                    height: "46px",
-                                }}
-                            >
-
-                                <FcGoogle
-                                    size={19}
-                                />
-
-                                <span>
-                                    Google
-                                </span>
-
-                            </button>
-
-
-                            <div
-                                style={{
-                                    position: "absolute",
-                                    top: 0,
-                                    left: 0,
-                                    width: "100%",
-                                    height: "46px",
-                                    opacity: 0,
-                                    overflow: "hidden",
-                                    zIndex: 2,
-                                }}
-                            >
-
-                                <GoogleLogin
-                                    onSuccess={handleGoogleSuccess}
-                                    onError={handleGoogleError}
-                                    useOneTap={false}
-                                    width="400"
-                                />
-
-                            </div>
+                            <GoogleLogin
+                                onSuccess={handleGoogleSuccess}
+                                onError={handleGoogleError}
+                                useOneTap={false}
+                                theme="outline"
+                                size="large"
+                                shape="rectangular"
+                                width="400"
+                            />
 
                         </div>
 
