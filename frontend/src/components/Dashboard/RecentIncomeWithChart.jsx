@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+
 import { LuTrendingUp } from "react-icons/lu";
+
 import CustomPieChart from "../Charts/CustomPieChart ";
 
 const COLORS = [
@@ -12,11 +14,9 @@ const COLORS = [
 ];
 
 const RecentIncomeWithChart = ({ data, totalIncome }) => {
-
     const [chartData, setChartData] = useState([]);
 
     useEffect(() => {
-
         const dataArr =
             data?.map((item) => ({
                 name: item?.source || "Income",
@@ -35,7 +35,6 @@ const RecentIncomeWithChart = ({ data, totalIncome }) => {
             <div className="flex items-center justify-between">
 
                 <div>
-
                     <div className="flex items-center gap-2">
 
                         <div className="w-1 h-6 rounded-full bg-gradient-to-b from-emerald-400 to-cyan-500" />
@@ -49,13 +48,10 @@ const RecentIncomeWithChart = ({ data, totalIncome }) => {
                     <p className="text-xs text-gray-500 mt-1">
                         Your income sources from the last 60 days
                     </p>
-
                 </div>
 
                 <div className="w-9 h-9 rounded-xl flex items-center justify-center bg-emerald-500/10 border border-emerald-400/10">
-
                     <LuTrendingUp className="text-emerald-400" />
-
                 </div>
 
             </div>
@@ -66,9 +62,12 @@ const RecentIncomeWithChart = ({ data, totalIncome }) => {
                 <CustomPieChart
                     data={chartData}
                     label="Total Income"
-                    totalAmount={`₹${Number(totalIncome || 0).toLocaleString("en-IN")}`}
+                    totalAmount={`₹${Number(
+                        totalIncome || 0
+                    ).toLocaleString("en-IN")}`}
                     showTextAnchor
                     colors={COLORS}
+                    fixedLabel="Income"
                 />
 
             </div>

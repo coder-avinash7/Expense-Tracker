@@ -18,7 +18,9 @@ const CustomPieChart = ({
     totalAmount,
     colors = [],
     showTextAnchor,
+    fixedLabel,
 }) => {
+
     // Fallback colors
     const chartColors =
         colors.length > 0
@@ -73,10 +75,12 @@ const CustomPieChart = ({
                                 offset="0%"
                                 stopColor="#A78BFA"
                             />
+
                             <stop
                                 offset="35%"
                                 stopColor="#875CF5"
                             />
+
                             <stop
                                 offset="100%"
                                 stopColor="#6438C7"
@@ -95,10 +99,12 @@ const CustomPieChart = ({
                                 offset="0%"
                                 stopColor="#FF4B55"
                             />
+
                             <stop
                                 offset="40%"
                                 stopColor="#FA2C37"
                             />
+
                             <stop
                                 offset="100%"
                                 stopColor="#D71927"
@@ -117,10 +123,12 @@ const CustomPieChart = ({
                                 offset="0%"
                                 stopColor="#FF8738"
                             />
+
                             <stop
                                 offset="40%"
                                 stopColor="#FF6900"
                             />
+
                             <stop
                                 offset="100%"
                                 stopColor="#D94B00"
@@ -162,9 +170,10 @@ const CustomPieChart = ({
                         filter="url(#pie3DShadow)"
                     >
                         {data.map((entry, index) => {
-                            let fill = chartColors[
-                                index % chartColors.length
-                            ];
+                            let fill =
+                                chartColors[
+                                    index % chartColors.length
+                                ];
 
                             if (index === 0) {
                                 fill = "url(#piePurpleGradient)";
@@ -188,7 +197,14 @@ const CustomPieChart = ({
                     </Pie>
 
                     {/* TOOLTIP */}
-                    <Tooltip content={CustomTooltip} />
+                    <Tooltip
+                        content={(props) => (
+                            <CustomTooltip
+                                {...props}
+                                fixedLabel={fixedLabel}
+                            />
+                        )}
+                    />
 
                     {/* CENTER TEXT */}
                     {showTextAnchor && (
