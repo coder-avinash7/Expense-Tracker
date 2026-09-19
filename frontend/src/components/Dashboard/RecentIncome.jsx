@@ -5,13 +5,17 @@ import moment from "moment";
 const RecentIncome = ({ transactions, onSeeMore }) => {
   return (
     <div className="card">
-      <div className="flex items-center justify-between ">
-        <h5 className="text-lg">Income</h5>
+      <div className="flex items-center justify-between">
+    <div className="flex items-center gap-2">
+        <div className="w-1 h-6 rounded-full bg-gradient-to-b from-emerald-400 to-cyan-500" />
 
-        <button className="card-btn" onClick={onSeeMore}>
-          See All <LuArrowRight className="text-base" />
-        </button>
-      </div>
+        <h5 className="text-lg">Income</h5>
+    </div>
+
+    <button className="card-btn" onClick={onSeeMore}>
+        See All <LuArrowRight className="text-base" />
+    </button>
+</div>
 
       <div className="mt-6">
         {transactions?.slice(0, 5).map((item) => (
