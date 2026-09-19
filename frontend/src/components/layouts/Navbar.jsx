@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
     HiOutlineMenu,
     HiOutlineX
@@ -11,10 +12,65 @@ import {
 } from "react-icons/lu";
 
 import SideMenu from "./SideMenu";
+import NotificationDropdown from "../Notification/NotificationDropdown";
 
 const Navbar = ({ activeMenu }) => {
-
     const [openSideMenu, setOpenSideMenu] = useState(false);
+    const [showNotifications, setShowNotifications] = useState(false);
+
+    const [notifications, setNotifications] = useState([
+        {
+            id: 1,
+            title: "Income Added",
+            message: "A new income transaction was added.",
+            type: "income",
+            time: "Recently",
+            read: false
+        },
+        {
+            id: 2,
+            title: "Expense Added",
+            message: "A new expense transaction was added.",
+            type: "expense",
+            time: "Recently",
+            read: false
+        },
+        {
+            id: 3,
+            title: "Welcome",
+            message: "Welcome back to your Expense Tracker.",
+            type: "general",
+            time: "Today",
+            read: true
+        }
+    ]);
+
+    const handleMarkAsRead = (id) => {
+        setNotifications((prev) =>
+            prev.map((notification) =>
+                notification.id === id
+                    ? { ...notification, read: true }
+                    : notification
+            )
+        );
+    };
+
+    const handleMarkAllAsRead = () => {
+        setNotifications((prev) =>
+            prev.map((notification) => ({
+                ...notification,
+                read: true
+            }))
+        );
+    };
+
+    const handleClearAll = () => {
+        setNotifications([]);
+    };
+
+    const unreadCount = notifications.filter(
+        (notification) => !notification.read
+    ).length;
 
     return (
         <>
@@ -30,7 +86,6 @@ const Navbar = ({ activeMenu }) => {
                     backdrop-blur-xl
                 "
             >
-
                 {/* Mobile Menu */}
                 <button
                     className="lg:hidden mr-4 text-gray-300"
@@ -45,10 +100,8 @@ const Navbar = ({ activeMenu }) => {
                     )}
                 </button>
 
-
                 {/* Logo */}
                 <div className="flex items-center gap-3 min-w-fit">
-
                     <div
                         className="
                             w-10 h-10
@@ -67,7 +120,6 @@ const Navbar = ({ activeMenu }) => {
                     </div>
 
                     <div className="hidden sm:block">
-
                         <h2 className="font-semibold text-white">
                             Expense Tracker
                         </h2>
@@ -75,15 +127,11 @@ const Navbar = ({ activeMenu }) => {
                         <p className="text-[10px] text-gray-500">
                             Manage Smarter
                         </p>
-
                     </div>
-
                 </div>
-
 
                 {/* Search */}
                 <div className="hidden md:flex flex-1 justify-center px-6">
-
                     <div
                         className="
                             w-full max-w-[500px]
@@ -96,7 +144,6 @@ const Navbar = ({ activeMenu }) => {
                             text-gray-500
                         "
                     >
-
                         <LuSearch />
 
                         <input
@@ -124,41 +171,64 @@ const Navbar = ({ activeMenu }) => {
                         >
                             Ctrl K
                         </span>
-
                     </div>
-
                 </div>
-
 
                 {/* Right */}
                 <div className="ml-auto flex items-center gap-4">
 
-                    <button
-                        className="
-                            relative
-                            w-9 h-9
-                            flex items-center justify-center
-                            rounded-full
-                            hover:bg-white/5
-                        "
-                    >
-                        <LuBell className="text-gray-300" />
-
-                        <span
+                    {/* Notification */}
+                    <div className="relative">
+                        <button
+                            type="button"
                             className="
-                                absolute
-                                top-1 right-1
-                                w-2 h-2
-                                bg-pink-500
+                                relative
+                                w-9 h-9
+                                flex items-center justify-center
                                 rounded-full
+                                hover:bg-white/5
+                                transition
                             "
-                        />
+                            onClick={() => {
+                                setShowNotifications(
+                                    !showNotifications
+                                );
+                            }}
+                        >
+                            <LuBell className="text-gray-300" />
 
-                    </button>
+                            {unreadCount > 0 && (
+                                <span
+                                    className="
+                                        absolute
+                                        top-1 right-1
+                                        min-w-2 h-2
+                                        px-1
+                                        bg-pink-500
+                                        rounded-full
+                                        border
+                                        border-[#080d25]
+                                    "
+                                />
+                            )}
+                        </button>
 
+                        {/* Notification Dropdown */}
+                        {showNotifications && (
+                            <NotificationDropdown
+                                notifications={notifications}
+                                onMarkAsRead={handleMarkAsRead}
+                                onMarkAllAsRead={handleMarkAllAsRead}
+                                onClearAll={handleClearAll}
+                                onClose={() => {
+                                    setShowNotifications(false);
+                                }}
+                            />
+                        )}
+                    </div>
 
+                    {/* Profile */}
                     <div className="hidden sm:flex items-center gap-3">
-
                         <div
                             className="
                                 w-9 h-9
@@ -175,7 +245,6 @@ const Navbar = ({ activeMenu }) => {
                         </div>
 
                         <div className="hidden md:block">
-
                             <p className="text-sm font-medium text-white">
                                 Avi
                             </p>
@@ -183,20 +252,13 @@ const Navbar = ({ activeMenu }) => {
                             <p className="text-[10px] text-gray-500">
                                 Welcome back!
                             </p>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </header>
 
-
             {/* Mobile Sidebar */}
-
             {openSideMenu && (
-
                 <div
                     className="
                         lg:hidden
@@ -207,15 +269,11 @@ const Navbar = ({ activeMenu }) => {
                         z-40
                     "
                 >
-
                     <SideMenu
                         activeMenu={activeMenu}
                     />
-
                 </div>
-
             )}
-
         </>
     );
 };

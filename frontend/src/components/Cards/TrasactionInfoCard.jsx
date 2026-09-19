@@ -15,7 +15,6 @@ const TrasactionInfoCard = ({
     hideDeleteBtn,
     onDelete
 }) => {
-
     const isIncome = type === "income";
 
     return (
@@ -35,7 +34,6 @@ const TrasactionInfoCard = ({
                 transition-all
             "
         >
-
             {/* Icon */}
             <div
                 className="
@@ -64,7 +62,6 @@ const TrasactionInfoCard = ({
 
             {/* Information */}
             <div className="flex-1 min-w-0">
-
                 <p
                     className="
                         text-sm
@@ -85,19 +82,31 @@ const TrasactionInfoCard = ({
                 >
                     {date}
                 </p>
-
             </div>
 
-            {/* Amount */}
-            <div className="flex items-center gap-2">
-
+            {/* Amount + Delete */}
+            <div
+                className="
+                    shrink-0
+                    w-[116px]
+                    flex
+                    items-center
+                    justify-between
+                "
+            >
+                {/* Delete Button */}
                 {!hideDeleteBtn && (
                     <button
                         className="
-                            text-gray-600
-                            hover:text-red-400
-                            opacity-0
-                            group-hover:opacity-100
+                            w-5
+                            flex
+                            items-center
+                            justify-center
+                            text-red-400
+                            hover:text-red-500
+                            opacity-100
+                            md:opacity-0
+                            md:group-hover:opacity-100
                             transition-all
                             cursor-pointer
                         "
@@ -107,16 +116,20 @@ const TrasactionInfoCard = ({
                     </button>
                 )}
 
+                {/* Amount */}
                 <div
                     className={`
+                        w-[90px]
                         flex
                         items-center
+                        justify-center
                         gap-1.5
-                        px-3
+                        px-2
                         py-1.5
                         rounded-lg
                         text-xs
                         font-medium
+                        whitespace-nowrap
                         ${
                             isIncome
                                 ? `
@@ -134,20 +147,16 @@ const TrasactionInfoCard = ({
                         }
                     `}
                 >
-
-                    {/* Amount */}
                     <span>
                         {isIncome ? "+" : "-"} ₹
                         {Number(amount).toLocaleString("en-IN")}
                     </span>
 
-                    {/* Trend Icon */}
                     {isIncome ? (
                         <LuTrendingUp />
                     ) : (
                         <LuTrendingDown />
                     )}
-
                 </div>
             </div>
         </div>
